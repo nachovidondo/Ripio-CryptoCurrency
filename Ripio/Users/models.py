@@ -50,8 +50,9 @@ class User(AbstractBaseUser):
     is_admin = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
     objects = UserManager()
-    
+    #Atribute to get Login
     USERNAME_FIELD = 'username'
+    #Fields required in when create user
     REQUIRED_FIELDS = ['email', 'name','surname']
     
     def __str__(self):

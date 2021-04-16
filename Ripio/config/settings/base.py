@@ -30,11 +30,9 @@ BASE_APPS = [
 LOCAL_APPS=['Users',
             'Currencies',
             'Tranferences'
-    
-]
-THIRD_APPS=[
-    
-]
+            ]
+THIRD_APPS=['crispy_forms',
+            ]
 
 INSTALLED_APPS = BASE_APPS + LOCAL_APPS + THIRD_APPS
 
@@ -106,3 +104,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+#Bootsrap 4 Crispy Forms
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
