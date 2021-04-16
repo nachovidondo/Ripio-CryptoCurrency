@@ -50,6 +50,11 @@ class User(AbstractBaseUser):
     is_admin = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
     objects = UserManager()
+    
+    class Meta:
+        verbose_name="Usuario"
+        verbose_name_plural="Usuarios"
+        
     #Atribute to get Login
     USERNAME_FIELD = 'username'
     #Fields required in when create user

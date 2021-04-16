@@ -1,0 +1,16 @@
+{% load crispy_forms_tags %}
+
+<div class ="card">
+    <div class="card-header">
+    <strong class="card-title">Login Usuarios</strong>
+</div>
+<div class="card-body">
+<form method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <div class="card-footer">
+        <button class="btn btn-primary" type="submit">Login</button>
+        <a href="#" class="btn btn-danger"></a>Cancelar</a>
+    </div>
+</form> 
+</div>
