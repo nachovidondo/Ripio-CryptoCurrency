@@ -1,4 +1,4 @@
-Ripio-CryptoCurrency
+rRipio-CryptoCurrency
 
 Challenge Tecnico para una compañia con el fin de poder crear una aplicacion web donde se puedan crear Usuarios a su vez puedan crear distintos tipos de monedas virtuales  generando operaciones con ellas .
 
@@ -12,4 +12,4 @@ Challenge Tecnico para una compañia con el fin de poder crear una aplicacion we
 
 Para esto desarrollare el proyecto con Django y utilizare postgresql como Database.
 
-<img src="images/Untitled Diagram(1).png">
+<img src="Ripio/images/Untitled Diagram(1).png">
