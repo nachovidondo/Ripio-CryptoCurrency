@@ -13,7 +13,8 @@ Challenge Tecnico para una compañia con el fin de poder crear una aplicacion we
 Para esto desarrollare el proyecto con Django y utilizare postgresql como Database.
 
 
-
+<br>
+<br>
 
 
 <img src="Ripio/images/Untitled Diagram(1).png" width="800" height="500">
