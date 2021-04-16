@@ -16,4 +16,4 @@ Para esto desarrollare el proyecto con Django y utilizare postgresql como Databa
 
 
 
-<img src="Ripio/images/Untitled Diagram(1).png" width="500" height="500">
+<img src="Ripio/images/Untitled Diagram(1).png" width="1000" height="500">
