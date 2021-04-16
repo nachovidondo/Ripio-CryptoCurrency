@@ -1,4 +1,4 @@
-Ripio CryptoCurrency
+Ripio Cryptocurrencies
 =======================================================
 
 Este repositorio tiene el objetivo de mostrar un proyecto 
