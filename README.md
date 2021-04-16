@@ -11,5 +11,3 @@ Challenge Tecnico para una compañia con el fin de poder crear una aplicacion we
 - Tener en cuenta un posible doble gasto u operación concurrente.
 
 Para esto desarrollare el proyecto con Django y utilizare postgres como Database.
-
-https://github.com/nachovidondo/Ripio-CryptoCurrency/blob/main/Untitled%20Diagram.drawio
