@@ -31,7 +31,8 @@ BASE_APPS = [
 
 LOCAL_APPS=['Users',
             'Currencies',
-            'Tranferences'
+            'Tranferences',
+            'Contact'
             ]
 THIRD_APPS=['crispy_forms',
             ]
