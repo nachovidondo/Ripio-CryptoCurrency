@@ -11,6 +11,12 @@ class LoginForm(AuthenticationForm):
         self.fields['password'].widget.attrs['class'] = 'form-control'
         self.fields['password'].widget.attrs['placeholder'] = 'Contraseña'
         
+        def get_invalid_login_error(self):
+            return forms.ValidationError(
+                self.error_messages['invalid_login'],
+                code = 'invalid_login',
+                params = {'username':self.username_field.verbose_name}
+            )
 #Custom User Form
 class UserForm(forms.ModelForm):
     #Form to register an User in a database
@@ -73,5 +79,5 @@ class UserForm(forms.ModelForm):
                 raise forms.ValidationError('Las contraseñas no coinciden!')
             return password2
         
-      
+
             

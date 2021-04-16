@@ -3,7 +3,7 @@ from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_protect
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from django.http import HttpResponseRedirect
 from django.views.generic.edit import FormView
 from django.views.generic import CreateView, View
@@ -12,8 +12,9 @@ from .forms import UserForm, LoginForm
 
 
 
-class IndexView(View):
-    template_name = 'index.html'
+def index(request):
+    return render(request, 'index.html')
+    
 
 class Login(FormView):
     template_name = 'login.html'
@@ -35,6 +36,9 @@ class Login(FormView):
             login(self.request,form.get_user())
             return super(Login,self).form_valid(form)
 
+def logoutUsuario(request):
+    logout(request)
+    return HttpResponseRedirect('/accounts/login/')
 
 class UserRegister(CreateView):
     model = User

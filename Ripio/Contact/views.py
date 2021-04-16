@@ -18,3 +18,6 @@ def contact(request):
         return render(request,'contact.html',{'name': name })
     else:
         return render(request, 'contact.html',{})
+
+def email_sent(request):
+    return render(request, 'email_sent.html')   

@@ -2,11 +2,16 @@
 
 <div class ="card">
     <div class="card-header">
-    <strong class="card-title">Login Usuarios</strong>
+    <strong class="card-title">Inicio de sesion </strong>
 </div>
 <div class="card-body">
 <form method="post">
     {% csrf_token %}
+    {% if form.error_messages %}
+    
+   <strong>Advertencia: </strong> {{ form.get_invalid_login_error }}
+    {% endif %}
+
     {{ form|crispy }}
     <div class="card-footer">
         <button class="btn btn-primary" type="submit">Login</button>

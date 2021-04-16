@@ -1,12 +1,14 @@
 from django.urls import path
 from django.contrib.auth  import views as auth_views 
-from .views import UserRegister, IndexView, Login
+from .views import UserRegister
+from . import views
+
 
 
 
 urlpatterns = [
     path('register/',UserRegister.as_view(), name="register"),
-    path('index/',IndexView.as_view(), name='index'),
+    path('index/',views.index, name='index'),
     path('reset_password/',
          auth_views.PasswordResetView.as_view(template_name="Users/password_reset.html"),
          name="reset_password"),
