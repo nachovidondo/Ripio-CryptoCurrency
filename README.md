@@ -12,7 +12,8 @@ Python - Django - Postgresql
 
 Instalacion
 =============================
-configuracion del entorno virtual - virtualenv (nombre del entorno) /
+
+configuracion del entorno virtual - virtualenv (nombre de su entorno virtual) /
  pip install django/
  pip install /
  pip install psycopg2
