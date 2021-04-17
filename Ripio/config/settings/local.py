@@ -10,8 +10,12 @@ ALLOWED_HOSTS = []
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgappdb',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'ripio_currencies',
+        'USER': 'nachovidondo',
+        'PASSWORD':'Ignacio43', 
+        'HOST':'localhost',
+        'PORT':'',
     }
 }
 

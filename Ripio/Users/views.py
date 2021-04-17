@@ -11,11 +11,6 @@ from .models import User
 from .forms import UserForm, LoginForm
 
 
-
-def index(request):
-    return render(request, 'index.html')
-    
-
 class Login(FormView):
     template_name = 'login.html'
     form_class = LoginForm
@@ -25,7 +20,7 @@ class Login(FormView):
     
     def distpach(self,request,*args, **kwargs):
         #User Authenticated  -> index
-        if request.user.is_authenticated():
+        if request.user.is_authenticated:
             return HttpResponseRedirect(self.get.success_url())
         #Not User authenticated  -> Login again
         else:
@@ -43,7 +38,7 @@ def logoutUsuario(request):
 class UserRegister(CreateView):
     model = User
     form_class = UserForm
-    template_name = "Users/register.html"
+    template_name = "register.html"
     
     def post(self,request,*args, **kwargs):
         # method to save password encrypted

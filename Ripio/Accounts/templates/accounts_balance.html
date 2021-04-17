@@ -1,0 +1,22 @@
+<h2>Mis cuentas {{user.username}} </h2>
+
+
+<table border="1">
+    <caption>Balances</caption>
+    <tr>
+        <th>Nº de cuenta</th>
+        <th>Tipo de Moneda</th>
+        <th>Saldo</th>
+      
+    </tr>
+     {% for account in accounts %}
+    <tr>
+        <td>{{account.account_number}}</td>
+        <td>{{account.type_currency}}</td>
+
+        <td>{{account.balance}}</td>
+    </tr>
+    {% endfor %}
+
+
+</table>

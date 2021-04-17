@@ -32,7 +32,9 @@ BASE_APPS = [
 LOCAL_APPS=['Users',
             'Currencies',
             'Tranferences',
-            'Contact'
+            'Accounts',
+            'Contact',
+            'MainApp'
             ]
 THIRD_APPS=['crispy_forms',
             ]
@@ -122,3 +124,4 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER =  'ripiocurrencies@gmail.com'
 EMAIL_HOST_PASSWORD = 'Ripio123' 
+

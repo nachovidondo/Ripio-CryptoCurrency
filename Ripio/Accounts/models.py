@@ -1,10 +1,11 @@
 from django.db import models
-from User.models import User
+from Users.models import User
 from Currencies.models import Currency
 
 
 class Account(models.Model):
     id = models.AutoField(primary_key=True)
+    status = models.BooleanField(default=True,verbose_name="Estado de cuenta")
     account_number = models.CharField(
         max_length=200, verbose_name="Nº de cuenta", unique=True
         )
