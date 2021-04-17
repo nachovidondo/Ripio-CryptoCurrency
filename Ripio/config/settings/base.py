@@ -31,7 +31,7 @@ BASE_APPS = [
 
 LOCAL_APPS=['Users',
             'Currencies',
-            'Tranferences',
+            'Transferences',
             'Accounts',
             'Contact',
             'MainApp'

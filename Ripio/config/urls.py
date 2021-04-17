@@ -12,5 +12,6 @@ urlpatterns = [
     path('accounts/login/', Login.as_view(), name="login"),
     path('logout/', login_required(logoutUsuario), name="logout"),
     path('contact/', include('Contact.urls')),
-    path('accounts/', include('Accounts.urls'))
+    path('accounts/', include('Accounts.urls')),
+    path('tranferences', include('Transferences.urls')),
     ]
