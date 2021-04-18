@@ -2,10 +2,10 @@
 {% block content %}
 <nav>
     <a href="{% url 'accounts_balance' %}">Mis cuentas</a>
-    <a href="">Balances</a>
-    <a href="">Mis Transferencias</a>
+    <a href="{% url 'my_transferences' %}">Mis Transferencias</a>
     <a href="{% url 'all_transferences' %}">Transferencias Generales</a>
     <a href="{% url 'transactions' %}">Transacciones</a>
+    <a href="#">Cotizacion</a>
     <a href="{% url 'logout' %}">logout</a>
     </nav>
     

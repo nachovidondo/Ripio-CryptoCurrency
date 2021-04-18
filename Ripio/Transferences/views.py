@@ -11,9 +11,14 @@ class AllTransferecesList(ListView):
     template_name = 'all_transferences.html'
 
 
+
 class TransferecesList(ListView):
     model = Transfer
-    template_name = 'transferences.html'
+    template_name = 'my_transferences.html'
+    def get_queryset(self):
+        user = User.objects.filter(username=request.user)
+        qs = Transfer.objects.filter(origin_account=user.account_number)
+        return qs
 
 
 class CreateTransfer(CreateView):

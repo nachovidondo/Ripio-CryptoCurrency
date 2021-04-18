@@ -7,5 +7,5 @@ class AccountsBalance(ListView):
     model = Account
     template_name = 'accounts_balance.html'
     context_object_name = 'accounts'
-    queryset = Account.objects.filter(status=True)
+    #queryset = Account.objects.filter(status=True).filter(username=request.user)
     

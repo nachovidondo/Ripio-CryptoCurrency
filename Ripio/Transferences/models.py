@@ -2,6 +2,7 @@ from django.db import models
 from Currencies.models import Currency
 
 
+
 class Transfer(models.Model):
     id = models.AutoField(primary_key=True)
     origin_account = models.CharField(
