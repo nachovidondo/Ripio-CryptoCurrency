@@ -1,0 +1,39 @@
+nav {
+    display: flex;
+    flex-direction: row;
+    background-color:#144D44 ;
+    }
+    
+    nav a {
+        color: cornsilk;
+        padding: 14px 20px;
+       text-decoration: none;
+    }
+    
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    aside {
+        flex: 30px;
+        background-color:cornsilk;
+        padding: 20px;
+        height: 400px;
+    }
+    
+    section {
+        flex:70%;
+        background-color:#AEC8C4 ;
+        padding: 20px;
+    }
+    
+    
+    footer {
+        height: 50px;
+        padding: 10px;
+        text-align: center;
+        background-color:#072923 ;
+        color:blanchedalmond;
+        font-size: x-small;
+    }

@@ -1,10 +1,21 @@
-
-
-<h2>{{user}}</h2>
-
-<h1>Hi everyone this is the index</h1>
-
-<h1><a href="{% url 'logout' %}">Logout</a></h1>
-<h6><a href="{% url 'accounts_balance' %}">Cuentas</a></h6>
-<h6><a href="{% url 'transferences' %}">Tranferences</a></h6>
-
+{% extends 'base.html' %}
+{% block content %}
+<nav>
+    <a href=>Usuario</a>
+    <a href="{% url 'accounts_balance' %}">Mis cuentas</a>
+    <a href="">Balances</a>
+    <a href="{% url 'transferences' %}">Transferencias</a>
+    <a href="">Transacciones</a>
+    <a href="{% url 'logout' %}">logout</a>
+    </nav>
+    
+    <div class="container">
+    <aside>
+        <h2> titulo del aside</h2>
+    </aside>
+    
+    <section>
+        <h2>titulo del section</h2>
+    </section>
+    </div>
+{% endblock %}

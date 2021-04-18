@@ -1,4 +1,27 @@
-<h5>Transferences</h5>
-{% for transfer in object_list %}
-{{ transfer.id }}
-{% endfor %}
+<h2>Transferencias de  {{user.username}} </h2>
+
+
+<table border="1">
+    <caption>Ultimos movimientos</caption>
+    <tr>
+        <th>Nº de transferencia</th>
+        <th>Fecha</th>
+        <th>Cuenta de origen</th>
+        <th>Cuenta de destino</th>
+         <th>Monto</th>
+      
+      
+    </tr>
+     {% for transfer in object_list %}
+    <tr>
+        <td>{{transfer.id}}</td>
+        <td>{{transfer.creation_date}}</td>
+
+        <td>{{trasnfer.origin_account}}</td>
+        <td>{{trasnfer.destination_account}}</td>
+        <td>{{trasnfer.amount}}</td>
+    </tr>
+    {% endfor %}
+
+
+</table>

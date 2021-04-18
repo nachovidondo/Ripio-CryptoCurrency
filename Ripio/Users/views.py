@@ -22,6 +22,8 @@ class Login(FormView):
         #User Authenticated  -> index
         if request.user.is_authenticated:
             return HttpResponseRedirect(self.get.success_url())
+             
+        
         #Not User authenticated  -> Login again
         else:
             return super(Login,self).distpach(request,*args, **kwargs)
@@ -30,6 +32,7 @@ class Login(FormView):
             #Validate if there is a user and login
             login(self.request,form.get_user())
             return super(Login,self).form_valid(form)
+    
 
 def logoutUsuario(request):
     logout(request)

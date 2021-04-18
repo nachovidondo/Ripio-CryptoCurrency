@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<meta charset="utf-8">
+{% load static %}
+<title>Ripio Cryptocurrencies Web</title>
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<header>
+<h1> Ripio Cryptocurrencies</h1>
+<h2> Bienvenido {{user}}</h2>
+</header>
+<body>
+    {% block content %}
+    {% endblock %}
+</body>
+
+
+<footer>
+    <h2> Ripio Cryptocurrencies WEB SITE &copy;2021 Created by Ignacio Vidondo</h2>
+</footer>
+</html>
+
+
+
