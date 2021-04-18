@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block content %}
+<h6>Transaccion realizada con exito!</h6>
+<a href="{% url 'index' %}"> Apreta aqui para redirigirte a la pagina de inicio </a>
+<a href="{% url 'logout' %}">Cerrar sesion</a>
+{% endblock %}

@@ -13,5 +13,5 @@ urlpatterns = [
     path('logout/', login_required(logoutUsuario), name="logout"),
     path('contact/', include('Contact.urls')),
     path('accounts/', include('Accounts.urls')),
-    path('tranferences', include('Transferences.urls')),
+    path('tranferences/', include('Transferences.urls')),
     ]

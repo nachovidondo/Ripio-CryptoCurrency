@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
 <nav>
-    <a href=>Usuario</a>
     <a href="{% url 'accounts_balance' %}">Mis cuentas</a>
     <a href="">Balances</a>
-    <a href="{% url 'transferences' %}">Transferencias</a>
-    <a href="">Transacciones</a>
+    <a href="">Mis Transferencias</a>
+    <a href="{% url 'all_transferences' %}">Transferencias Generales</a>
+    <a href="{% url 'transactions' %}">Transacciones</a>
     <a href="{% url 'logout' %}">logout</a>
     </nav>
     

@@ -15,25 +15,30 @@ class Login(FormView):
     template_name = 'login.html'
     form_class = LoginForm
     success_url = reverse_lazy('index')
+    
     @method_decorator(csrf_protect)
     @method_decorator(never_cache)
-    
-    def distpach(self,request,*args, **kwargs):
-        #User Authenticated  -> index
+    def dispatch(self,request,*args, **kwargs):
         if request.user.is_authenticated:
+            #User Authenticated  -> index
             return HttpResponseRedirect(self.get.success_url())
-             
-        
         #Not User authenticated  -> Login again
         else:
-            return super(Login,self).distpach(request,*args, **kwargs)
+            
+            return super(Login,self).dispatch(request,*args, **kwargs)
         
         def form_valid(self,form):
             #Validate if there is a user and login
             login(self.request,form.get_user())
+            user = User.objects.filter(username=self.request.user)
+            print(user.email)
+            """send_mail('Ripio Loggin',
+                      'Hola acabamos de registrar un ingreso a tu cuenta Ripio, si fuiste vos desestima este email. Es simpletemente una medida adicional de seguridad para que puedas monitorear los ingresos a tu cuenta . Si no fuiste vos , te pedimos que te comuniques con nosotros',
+                      'ripiocurrencies@gmail.com', #FROM 
+                      ['user.email'], #TO
+                      fail_silently=False)"""
             return super(Login,self).form_valid(form)
     
-
 def logoutUsuario(request):
     logout(request)
     return HttpResponseRedirect('/accounts/login/')
