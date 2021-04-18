@@ -9,6 +9,9 @@ class Currency(models.Model):
         )
     image = models.ImageField(verbose_name="Logo", blank=True, null=True)
     amount = models.FloatField(verbose_name="Cantidad")
+    price = models.FloatField(verbose_name="Cotizacion", default=True)
+    update_date = models.DateTimeField(auto_now=True)
+    
     
     class Meta:
         verbose_name="Moneda"

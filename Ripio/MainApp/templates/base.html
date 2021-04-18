@@ -1,28 +1,27 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head> 
 <meta charset="utf-8">
-{% load static %}
 <title>Ripio Cryptocurrencies Web</title>
 
 <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-{% now "jS F Y H:i" %}
+<body>
+
+   
 <header>
 <h1> Ripio Cryptocurrencies</h1>
-<h2> Bienvenido {{user}}</h2>
+<h2>Bienvenido {{user}}</h2>
+<p textalign="right">{% now "jS F Y H:i" %}</p>
 </header>
-<body>
-    {% block content %}
-    {% endblock %}
-</body>
+
+{% block content %}
+{% endblock %}
 
 <footer>
-    <h2> Ripio Cryptocurrencies WEB SITE &copy;2021 Created by Ignacio Vidondo</h2>
+    <h2> Ripio Cryptocurrencies WEB &copy; 2021 created by Ignacio Vidondo </h2>
 </footer>
+
 </html>
-
-
-

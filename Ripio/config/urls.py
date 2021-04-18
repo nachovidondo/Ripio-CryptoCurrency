@@ -14,4 +14,5 @@ urlpatterns = [
     path('contact/', include('Contact.urls')),
     path('accounts/', include('Accounts.urls')),
     path('tranferences/', include('Transferences.urls')),
+    path('currencies/', include('Currencies.urls')),
     ]

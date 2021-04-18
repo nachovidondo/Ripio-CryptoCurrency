@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
 
+
 <h2>Transferencias Generales </h2>
 
-
-<table border="1">
+<div class="table-container">
+    <table border="1">
     <caption>Ultimos movimientos</caption>
     <tr>
         <th>Nº de transferencia</th>
@@ -25,7 +26,6 @@
         <td>{{transfer.amount}}</td>
     </tr>
     {% endfor %}
-
-
-</table>
+    </table>
+</div>
 {% endblock %}

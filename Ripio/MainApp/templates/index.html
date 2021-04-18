@@ -5,17 +5,23 @@
     <a href="{% url 'my_transferences' %}">Mis Transferencias</a>
     <a href="{% url 'all_transferences' %}">Transferencias Generales</a>
     <a href="{% url 'transactions' %}">Transacciones</a>
-    <a href="#">Cotizacion</a>
-    <a href="{% url 'logout' %}">logout</a>
-    </nav>
+    <a href="{% url 'currencies_price' %}">Cotizacion</a>
+    <a href="{% url 'logout' %}">Logout</a>
+    {% if user.is_authenticated %}
+    <a href="{% url 'logout' %}">Manejo Administrador</a>
+    {% endif %}
+    
+</nav>
     
     <div class="container">
     <aside>
         <h2> titulo del aside</h2>
+        
     </aside>
     
     <section>
         <h2>titulo del section</h2>
     </section>
     </div>
+</nav>
 {% endblock %}
