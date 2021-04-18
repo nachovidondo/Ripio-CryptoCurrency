@@ -2,6 +2,7 @@
 {% block content %}
 
 <h2>Mis cuentas {{user.username}} </h2>
+<td><a href="{% url 'create_account' %}">Crear nueva cuenta monetaria</a></td>
 
 
 <table border="1">
@@ -19,7 +20,7 @@
         <td>{{account.type_currency}}</td>
 
         <td>{{account.balance}}</td>
-        <td><a href="{% url 'my_transferences' account.id %}">Ver transferencias</a></td>
+        <td><a href="{% url 'my_transferences' %}">Ver transferencias</a></td>
     </tr>
     {% endfor %}
 
