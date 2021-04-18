@@ -10,6 +10,7 @@
         <th>Nº de cuenta</th>
         <th>Tipo de Moneda</th>
         <th>Saldo</th>
+
       
     </tr>
      {% for account in accounts %}
@@ -18,6 +19,7 @@
         <td>{{account.type_currency}}</td>
 
         <td>{{account.balance}}</td>
+        <td><a href="{% url 'my_transferences' account.id %}">Ver transferencias</a></td>
     </tr>
     {% endfor %}
 

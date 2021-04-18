@@ -4,6 +4,7 @@ from .models import Transfer
 from django.views.generic import ListView ,View , CreateView
 from Accounts.models import Account
 from .forms import TransferForm
+from Users.models import User
 
 
 class AllTransferecesList(ListView):
@@ -11,13 +12,17 @@ class AllTransferecesList(ListView):
     template_name = 'all_transferences.html'
 
 
-class TransferecesList(ListView):
+class MyTransferences(ListView):
     model = Transfer
     template_name = 'my_transferences.html'
     def get_queryset(self):
-        user = User.objects.filter(username=request.user)
-        qs = Transfer.objects.filter(origin_account=user.account_number)
+        qs = Transfer.objects.all()
+      
+        if qs:
+            qs = qs.filter(origin_account=account)
         return qs
+       
+      
 
 
 class CreateTransfer(CreateView):

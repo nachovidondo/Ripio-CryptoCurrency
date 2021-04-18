@@ -65,10 +65,10 @@ footer {
     color:blanchedalmond;
     font-size: x-small;
 }
-h2 {
+.h2 {
     padding: 5px;
     margin: 20px;
-    Text-align:centre;
+    Text-align:center;
 }
 
 .table-container  {

@@ -1,12 +1,13 @@
 from django.db import models
 from Currencies.models import Currency
-
+from Accounts.models import Account
 
 
 class Transfer(models.Model):
     id = models.AutoField(primary_key=True)
-    origin_account = models.CharField(
-        max_length=200, verbose_name="Cuenta de origen"
+    origin_account = models.ForeignKey(
+        Account,  on_delete=models.CASCADE,
+        verbose_name="Cuenta de origen", default=True
         )
     destination_account = models.CharField(
         max_length=200,verbose_name="Cuenta de destino"

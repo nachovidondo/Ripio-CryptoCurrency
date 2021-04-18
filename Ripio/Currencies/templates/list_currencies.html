@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<table border="1">
+    <caption>Monedas</caption>
+    <tr>
+        <th>Id </th>
+        <th>Nombre</th>
+        <th>Cantidad</th>
+        <th>Precio</th>
+         <th>Ultimo movimiento</th>
+    </tr>
+     {% for currency in object_list %}
+    <tr>
+        <td>{{currency.id}}</td>
+        <td>{{currency.name}}</td>
+
+        <td>{{currency.amount}}</td>
+        <td>{{currency.price}}</td>
+        <td>{{currency.update_date}}</td>
+    </tr>
+    {% endfor %}
+{% endblock %}
