@@ -11,7 +11,6 @@ class AllTransferecesList(ListView):
     template_name = 'all_transferences.html'
 
 
-
 class TransferecesList(ListView):
     model = Transfer
     template_name = 'my_transferences.html'

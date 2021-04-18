@@ -1,13 +1,19 @@
 from django.urls import path
+from django.contrib.auth.decorators import login_required
 from .views import AllTransferecesList, CreateTransfer, TransferecesList
 from . import views
 
 
 
 urlpatterns = [
-    path('',AllTransferecesList.as_view(), name="all_transferences"),
-    path('my_transferences/', TransferecesList.as_view(), name="my_transferences"),
-    path('transactions/', views.transactions, name="transactions"),
-    path('create_transfer', CreateTransfer.as_view(), name="create_transfer"),
-    path('succesfull_transfer', views.succesfull_transfer, name="succesfull_transfer")
+    path('', login_required(AllTransferecesList.as_view()), 
+         name="all_transferences"),
+    path('my_transferences/', login_required(TransferecesList.as_view()),
+         name="my_transferences"),
+    path('create_transfer', login_required(CreateTransfer.as_view()),
+         name="create_transfer"),
+    path('transactions/', login_required(views.transactions),
+         name="transactions"),
+    path('succesfull_transfer', login_required(views.succesfull_transfer), 
+         name="succesfull_transfer")
 ]

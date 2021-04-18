@@ -1,9 +1,9 @@
 from django.urls import path
-from .views import AccountsBalance
 from django.contrib.auth.decorators import login_required
+from .views import AccountsBalance
 
 
 
 urlpatterns = [
-    path('', AccountsBalance.as_view(), name="accounts_balance"),
+    path('', login_required(AccountsBalance.as_view()), name="accounts_balance"),
 ]
