@@ -2,6 +2,11 @@ from django import forms
 from Accounts.models import Account
 from .models import Transfer
 
+#############################################[  GLOBALS  ]############################################
+ACCOUNT_UNKOWN = 'La cuenta de destino no esta registrada en el sistema, por favor verifique si es correcta '
+AMOUNT_VALUE = 'No puede transferir un monto menor a 0'
+AMOUNT_ACCOUNT = 'Su saldo es insuficiente para realizar esta transferencia'
+##############################################[  MAIN  ]##############################################
 
 class TransferForm(forms.ModelForm):
     destination_account = forms.CharField(label="Cuenta de destino",
@@ -33,7 +38,7 @@ class TransferForm(forms.ModelForm):
         destination_account = self.cleaned_data.get('destination_account')
         accounts = Account.objects.filter(account_number=destination_account)
         if not accounts:
-            raise forms.ValidationError('No se encuentra una cuenta como esta ')
+            raise forms.ValidationError(ACCOUNT_UNKOWN)
         else:
              return destination_account
     
@@ -42,17 +47,12 @@ class TransferForm(forms.ModelForm):
         origin_account = self.cleaned_data.get('origin_account')
         account = Account.objects.filter(account_number=origin_account)
         if int(amount)< 0:
-            raise forms.ValidationError('El monto transferido debe ser mayor a 0 ')
+            raise forms.ValidationError(AMOUNT_VALUE)
         if int(amount) > account[0].balance:
-            raise forms.ValidationError('Saldo insuficiente en su cuenta ')
+            raise forms.ValidationError(AMOUNT_ACCOUNT)
         else:
             return amount
-        def type_currency(self,*args,**kwargs):
-            type_currency = self.cleaned_data.get('type_currency')
-            print(type_currency)
-            return type_currency
-            
-            
+   
         
 
         
