@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+
 <nav>
     <a href="{% url 'accounts_balance' %}">Mis cuentas</a>
     <a href="{% url 'my_transferences' %}">Mis Transferencias</a>
@@ -15,12 +16,13 @@
     
     <div class="container">
     <aside>
-        <h2> titulo del aside</h2>
+   
+        <p textalign="right">{% now "jS F Y H:i" %}</p>
         
     </aside>
     
     <section>
-        <h2>titulo del section</h2>
+        <h2>Bienvenido {{user}}</h2>
     </section>
     </div>
 </nav>

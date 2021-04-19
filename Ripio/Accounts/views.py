@@ -20,6 +20,9 @@ class CreateAccount(CreateView):
     form_class =  AccountForm
     success_url = reverse_lazy('accounts_balance')
     def get_form_kwargs(self):
+        #Filter by user login
         kwargs = super(CreateAccount, self).get_form_kwargs()
         kwargs['username'] = self.request.user
         return kwargs
+    def get_queryset(self):
+        currency = Account.objects.filter(username=user)

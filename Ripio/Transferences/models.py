@@ -6,7 +6,6 @@ from Accounts.models import Account
 
 
 
-
 class Transfer(models.Model):
     id = models.AutoField(primary_key=True)
     origin_account = models.ForeignKey(
@@ -28,6 +27,7 @@ class Transfer(models.Model):
         
     def __str__(self):
         return str(self.id)
+    
 #Signal to control User Currency amount
 @receiver(post_save, sender=Transfer)
 def transfer_save_detail(sender, instance, **kwargs):
@@ -36,9 +36,6 @@ def transfer_save_detail(sender, instance, **kwargs):
     amount = instance.amount
     currency = instance.currency
     account_destination = Account.objects.get(account_number=destination_account)
-    print(origin_account.username)
-    print(account_destination.username)
-
     if origin_account:
         discount = int(origin_account.balance) - int(amount)
         origin_account.balance=discount
