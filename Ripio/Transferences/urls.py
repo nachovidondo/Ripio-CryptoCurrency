@@ -1,6 +1,7 @@
 from django.urls import path
 from django.contrib.auth.decorators import login_required
 from .views import AllTransferecesList, CreateTransfer, MyTransferences
+from .views import Download
 from . import views
 
 
@@ -15,5 +16,6 @@ urlpatterns = [
     path('transactions/', login_required(views.transactions),
          name="transactions"),
     path('succesfull_transfer', login_required(views.succesfull_transfer), 
-         name="succesfull_transfer")
+         name="succesfull_transfer"),
+    path('download/<int:pk>/', login_required(Download.as_view()), name='download')
 ]

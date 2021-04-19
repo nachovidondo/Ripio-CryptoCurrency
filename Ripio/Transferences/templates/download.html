@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transferencias PDF</title>
+    <a href="{% url 'index'%}"><h1>Ripio Cryptocurrencies Transferencia</h1></a>
+    <p textalign="right">{% now "jS F Y H:i" %}</p>
+</head>
+
+
+    
+<tbody>
+<table border="1">
+            <tr style="border-top: 1px solid black; padding-top: 15px;">
+                <th colspan="2" style="text-align: left "><b> Nº de Transferencia:</b></th>
+
+                <td>{{transfer.id}}</td>
+            </tr>
+            <tr style="padding-top: 5px;">
+                <th colspan="2" style="text-align: left "><b>Cuenta de origen:</b></th>
+
+                <td>{{transfer.origin_account}}</td>
+            </tr>
+            <tr style="padding-top: 5px;">
+                <th colspan="2 " style="text-align: left ">Cuenta de destino</th>
+                <td>{{transfer.destination_account}}</td>
+            </tr>   
+            <tr style="padding-top: 5px;">
+                <th colspan="2 " style="text-align: left ">Fecha</th>
+                <td>{{transfer.creation_date}}</td>
+            </tr>
+            <tr style="padding-top: 5px;">
+                <th colspan="2 " style="text-align: left ">Monto</th>
+                <td>{{transfer.amount}}</td>
+            </tr>
+        </tbody>
+
+</table>
+
+</html>

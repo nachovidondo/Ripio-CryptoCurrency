@@ -74,3 +74,28 @@ footer {
 .table-container  {
     margin: auto;
 }
+
+.head {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#invoice thead tr th {
+    text-align: left;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    padding-top: 4px;
+}
+
+#invoice thead tr {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+#invoice tbody tr {
+    padding: 0;
+}
+
+.text-center {
+    text-align: center;
+}
