@@ -9,9 +9,10 @@ from django.contrib.staticfiles import finders
 from django.views.generic import ListView ,View , CreateView, DetailView
 from xhtml2pdf import pisa
 from Accounts.models import Account
+from Users.models import User
 from .models import Transfer
 from .forms import TransferForm
-from Users.models import User
+
 
 
 class AllTransferecesList(ListView):
@@ -22,8 +23,6 @@ class AllTransferecesList(ListView):
 class MyTransferences(ListView):
     model = Transfer
     template_name = 'my_transferences.html'
-    
-      
 
 
 class CreateTransfer(CreateView):
@@ -31,8 +30,13 @@ class CreateTransfer(CreateView):
     template_name = 'create_transfer.html'
     form_class = TransferForm
     success_url = reverse_lazy('succesfull_transfer')
+    def get_form_kwargs(self):
+        #Function to filter all the accounts from the user login
+        kwargs = super(CreateTransfer, self).get_form_kwargs()
+        kwargs['username'] = self.request.user
+        return kwargs
 
-    
+
 class Download(DetailView):
     #PDF GENERATE
      def get(self, request,*args,**kwargs):
@@ -41,7 +45,6 @@ class Download(DetailView):
             context = {
                 'transfer': Transfer.objects.get(pk=self.kwargs['pk'])
             }
-            
             html = template.render(context)
             response = HttpResponse(content_type='application/pdf')
             #response['Content-Disposition'] = 'attachment; filename= "transfer.pdf"'
@@ -53,6 +56,7 @@ class Download(DetailView):
          except:
             pass
          return HttpResponseRedirect(reverse_lazy('my_transferences'))
+
 
 def transactions(request):
     return render(request, 'transactions.html')
