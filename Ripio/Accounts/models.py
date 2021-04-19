@@ -20,7 +20,8 @@ class Account(models.Model):
     creation_date = models.DateTimeField(auto_now=True, verbose_name="Fecha")
     
     class Meta:
-        unique_together = ('username', 'type_currency') #To avoid accounts with same currencies
+
+        unique_together = ('id', 'type_currency')
         verbose_name="Cuenta"
         verbose_name_plural = "Cuentas"
     def __str__(self):

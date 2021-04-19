@@ -38,6 +38,7 @@ LOCAL_APPS=['Users',
             'Administrator'
             ]
 THIRD_APPS=['crispy_forms',
+            'rest_framework',
             ]
 
 INSTALLED_APPS = BASE_APPS + LOCAL_APPS + THIRD_APPS

@@ -41,6 +41,11 @@ class CreateTransfer(CreateView):
         kwargs = super(CreateTransfer, self).get_form_kwargs()
         kwargs['username'] = self.request.user
         return kwargs
+    def get_queryset(self,request,*args,**kwargs):
+        account = Account.objects.filter(username=self.request.user)
+        print("gola")
+        transfer = Transfer.objects.filter(type_currency=account.type_currency)
+        return transfer
 
 class Download(DetailView):
     #PDF GENERATE

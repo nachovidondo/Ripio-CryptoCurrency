@@ -26,6 +26,8 @@ class TransferForm(forms.ModelForm):
            user = kwargs.pop('username')
            super(TransferForm, self).__init__(*args, **kwargs)
            self.fields['origin_account'].queryset = Account.objects.filter(username=user)
+
+          
            
     def clean_destination_account(self,*args,**kwargs):
         destination_account = self.cleaned_data.get('destination_account')
@@ -38,8 +40,6 @@ class TransferForm(forms.ModelForm):
     def clean_amount(self,*args,**kwargs):
         amount = self.cleaned_data.get('amount')
         origin_account = self.cleaned_data.get('origin_account')
-        currency = self.cleaned_data.get('type_currency')
-        print(currency)
         account = Account.objects.filter(account_number=origin_account)
         if int(amount)< 0:
             raise forms.ValidationError('El monto transferido debe ser mayor a 0 ')
@@ -47,6 +47,10 @@ class TransferForm(forms.ModelForm):
             raise forms.ValidationError('Saldo insuficiente en su cuenta ')
         else:
             return amount
+        def type_currency(self,*args,**kwargs):
+            type_currency = self.cleaned_data.get('type_currency')
+            print(type_currency)
+            return type_currency
             
             
         
