@@ -27,6 +27,7 @@ class NewCurrency(CreateView):
     model = Currency
     template_name = 'new_currency.html'
     form_class =  CurrencyForm
+    success_url = reverse_lazy('list_currencies')
 
 
 class DeleteCurrency(DeleteView):

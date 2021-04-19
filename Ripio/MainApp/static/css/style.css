@@ -72,9 +72,8 @@ footer {
 }
 
 .table-container  {
-    margin: auto;
+    margin: 0 auto;
 }
-
 .head {
     text-align: center;
     text-transform: uppercase;

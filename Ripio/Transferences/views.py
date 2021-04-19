@@ -23,6 +23,12 @@ class AllTransferecesList(ListView):
 class MyTransferences(ListView):
     model = Transfer
     template_name = 'my_transferences.html'
+    def get_queryset(self):
+        #Filtering by user account
+        accounts = Account.objects.filter(username=self.request.user)
+        queryset = Transfer.objects.filter(origin_account=accounts[0])
+        return queryset
+
 
 
 class CreateTransfer(CreateView):
@@ -35,7 +41,6 @@ class CreateTransfer(CreateView):
         kwargs = super(CreateTransfer, self).get_form_kwargs()
         kwargs['username'] = self.request.user
         return kwargs
-
 
 class Download(DetailView):
     #PDF GENERATE

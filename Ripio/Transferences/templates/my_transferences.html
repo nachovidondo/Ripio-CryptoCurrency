@@ -3,30 +3,28 @@
 
 <h2>Mis Transferencias </h2>
 
-
-<table border="1">
-    <caption>Ultimos movimientos</caption>
-    <tr>
-        <th>Nº de transferencia</th>
-        <th>Fecha</th>
-        <th>Cuenta de origen</th>
-        <th>Cuenta de destino</th>
-         <th>Monto</th>
-      
-      
-    </tr>
-     {% for transfer in object_list %}
-    <tr>
-        <td>{{transfer.id}}</td>
-        <td>{{transfer.creation_date}}</td>
-
-        <td>{{transfer.origin_account}}</td>
-        <td>{{transfer.destination_account}}</td>
-        <td>{{transfer.amount}}</td>
-        <td><a href="{% url 'download' transfer.id %}">Ver en pdf </a></td>
-    </tr>
-    {% endfor %}
-
-
-</table>
+<div class="table-container">
+    <table border="1"  style="margin: 0 auto;">
+        <caption>Ultimos movimientos</caption>
+        <tr>
+            <th>Nº de transferencia</th>
+            <th>Fecha</th>
+            <th>Cuenta de origen</th>
+            <th>Cuenta de destino</th>
+             <th>Monto</th>
+        </tr>
+         {% for transfer in object_list %}
+        <tr>
+            <td>{{transfer.id}}</td>
+            <td>{{transfer.creation_date}}</td>
+    
+            <td>{{transfer.origin_account}}</td>
+            <td>{{transfer.destination_account}}</td>
+            <td>{{transfer.amount}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+<strong><a href="{% url 'create_transfer' %}">Nueva transferencia </a></strong>
 {% endblock %}
+.table-container { background-color: red;}

@@ -18,6 +18,11 @@
     <aside>
    
         <p textalign="right">{% now "jS F Y H:i" %}</p>
+         {% for currency in object_list %}
+         
+        <p>{{currency.name}}</p>
+        <p>{{currency.price}}</p>
+        {% endfor %}
         
     </aside>
     

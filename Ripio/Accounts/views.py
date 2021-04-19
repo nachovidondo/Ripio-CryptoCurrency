@@ -18,7 +18,7 @@ class CreateAccount(CreateView):
     model = Account
     template_name = 'create_account.html'
     form_class =  AccountForm
-    success_url = reverse_lazy('accounts_balance')
+    success_url = reverse_lazy('index')
     def get_form_kwargs(self):
         #Filter by user login
         kwargs = super(CreateAccount, self).get_form_kwargs()
