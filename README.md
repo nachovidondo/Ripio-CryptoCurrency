@@ -8,7 +8,7 @@ realizar transacciones y obtener el balance de sus cuentas.
 
 Pre-requisitos / Requerimientos
 =====================
-Python - Django - Postgresql 
+Python - Django - Postgresql - Django Rest Framework
 
 Instalacion
 =============================
@@ -16,7 +16,7 @@ Instalacion
 Configuracion del entorno virtual - virtualenv (nombre de su entorno virtual) /
 
  pip install django/
- pip install /
+ pip install django_rest_framework
  pip install psycopg2
 
 
@@ -33,6 +33,12 @@ Objetivos de Desarrollo
 
 
 =======================================================
+
+Desarrollo del proyecto
+=======================================================
+Se procedio a la creacion del proyecto mediante la utilizacion de Django como plataforma de trabajo de desarollo backend. Realize la implementacion de la logica del proyecto y la creacion de los modelos en la base de datos. Estos modelos son las estructuras fundamentales del proyecto , cuentan con validacion en los formularios y a su ves con vistas . Todas las funciones estan protegistas por un login_required y a su vez cada usuario al generar un nuevo login recibe un email a su cuenta personal donde se comunica que alguien esta siendo logeado con su cuenta.
+Trabaje para la implementacion de transferencias entre los usuarios , generando en ellas cierta logica , donde cada usuario es capaz de transferir desde su propia cuenta , la cual posee un tipo de moneda especifico. En cada transferencia realizada , mediante un signal se procede al ajuste de la cantidad de dinero entre las cuentas de los usuarios involucrados en la transferencia, sumando a esto la implementacion de una sumatoria de monedas , corroborando que el total que tienen todos los usuarios sea igual a la cantidad de monedas que esta dando giros en el mercado. Se implemento el reenvio de emails automaticos para informar a los usuarios que se ha generado una transferencia con su cuenta ( tanto el usuario que envia como el que recibe.). Como en todas las monedas virtuales , uno de los pasos de seguridad es la capacidad de visualisacion publica de las transferencias realizadas. En este caso he implementado una vista donde cualquier usuario es capaz de ver las transferencias realizadas por todos los demas usuarios . En lo que respecta a las transferencias personales , realize una vista donde detallo por medio de una tabla la cantidad de transferencias con la capacidad de visualizarlas en formato PDF y si es requerido por el usuario descargarlas.
+
 
 Agradezco a las personas de la empresa  que
 me ha dado la oportunidad de tomar esta prueba,
