@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
 <h2>Administrador</h2>
-<ul>
-    <li>
-        <a href="{% url 'list_currencies' %}">Monedas</a>
-    </li>
-
-</ul>
+<nav>
+    <a href="{% url 'list_currencies' %}">Monedas</a>
+    <a href="{% url 'transfer' %}">API- Transferencias</a>
+    <a href="{% url 'users' %}">API-Usuarios</a>
+    <a href="{% url 'accounts' %}">API-Cuentas</a>
+</nav>
 
 {% endblock %}

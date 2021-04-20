@@ -1,23 +1,24 @@
-from django.shortcuts import render,redirect,reverse
-from django.core.mail import send_mail
-
+from django.core.mail import send_mail, BadHeaderError
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, redirect
+from .forms import ContactForm
 
 def contact(request):
-    if request.method == "POST":
-        name = request.POST['Name']
-        email = request.POST['Email']
-        message = request.POST['Message']
-        #Send Email
-        send_mail(
-            name,   
-            message, 
-            email,     #from email  
-            ['ripiocurrencies@gmail.com'], #to email
-            )
-        print("ok")
-        return render(request,'contact.html',{'name': name })
+    if request.method == 'GET':
+        form = ContactForm()
     else:
-        return render(request, 'contact.html',{})
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            subject = form.cleaned_data['subject']
+            from_email = form.cleaned_data['from_email']
+            message = form.cleaned_data['message']
+            try:
+                send_mail(subject, message, from_email, ['ripiocurrencies@gmail.com'])
+            except BadHeaderError:
+                return HttpResponse('Mensaje no enviado ')
+            return redirect('email_sent')
+    return render(request, "contact.html", {'form': form})
+
 
 def email_sent(request):
     return render(request, 'email_sent.html')   

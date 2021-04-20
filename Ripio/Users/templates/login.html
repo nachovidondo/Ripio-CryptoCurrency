@@ -1,27 +1,23 @@
 {% extends 'base.html' %}
-{% block content %}
 {% load crispy_forms_tags %}
+{% block title %}Login{% endblock %}
 
-<div class ="card">
-    <div class="card-header">
-    <strong class="card-title">Inicio de sesion </strong>
-</div>
-<div class="card-body">
+{% block content %}
+<div style="width: 450px;  margin: 0 auto; padding: 10px;">
+<h2>Login</h2>
 <form method="post">
-    {% csrf_token %}
-    {% if form.error_messages %}
+  {% csrf_token %}
+  {% if form.error_messages %}
     
-   <strong>Advertencia: </strong> {{ form.get_invalid_login_error }}
-    {% endif %}
+  <strong>Advertencia: </strong> {{ form.get_invalid_login_error }}
+  {% endif %}
 
-    {{ form|crispy }}
-    <div class="card-footer">
-        <button class="btn btn-primary" type="submit">Login</button>
-        <a href="#" class="btn btn-danger"></a>Cancelar</a>
-    </div>
-</form> 
+  {{ form|crispy}}
+  <button type="submit" class="btn btn-primary">Login</button>
+</form>
 <a href="{% url 'reset_password' %}">Olvido su contraseña?</a>
 <a href="{% url 'register' %}">Crear cuenta </a>
 <a href="{% url 'contact' %}">Contactanos</a>
+</div>
 </div>
 {% endblock %}
