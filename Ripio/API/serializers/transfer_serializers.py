@@ -5,6 +5,8 @@ from API.serializers.account_serializers import AccountSerializer
 from Currencies.models import Currency
 from Accounts.models import Account
 
+
+
 #############################################[  GLOBALS  ]############################################
 
 INVALID_ORIGIN_ACCOUNT = 'CUENTA DE ORIGEN INVALIDA O NO REGISTRADA EN EL SISTEMA'
@@ -14,6 +16,8 @@ INVALID_CURRENCY = 'EL TIPO DE MONEDA QUE DESEA TRANSFERIR ES INVALIDO PARA ESTA
 INVALID_ACCOUNTS = 'LAS CUENTAS DE ORIGEN Y DESTINO NO PUEDEN SER IGUALES'
 
 ##############################################[  MAIN  ]##############################################
+
+
 
 class TransferSerializer(serializers.ModelSerializer):
        class Meta:

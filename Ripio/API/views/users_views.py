@@ -1,9 +1,9 @@
-from rest_framework import generics
+from rest_framework import viewsets
 from API.serializers.users_serializers import UserSerializer
 
 
 
-class UserList(generics.ListCreateAPIView):
+class UsersViewset(viewsets.ModelViewSet):
     serializer_class = UserSerializer
     queryset = UserSerializer.Meta.model.objects.all()
     

@@ -25,6 +25,7 @@
         <td>{{transfer.origin_account}}</td>
         <td>{{transfer.destination_account}}</td>
         <td>{{transfer.amount}}</td>
+        <td>  <a href="{% url 'download' transfer.id %}">Ver en PDF</a></td>
     </tr>
     {% endfor %}
 

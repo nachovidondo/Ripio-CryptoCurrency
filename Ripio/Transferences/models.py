@@ -57,7 +57,7 @@ def transfer_save_detail(sender, instance, **kwargs):
                   'ripiocurrencies@gmail.com', 
                    [email_origin,email_destination],
                   fail_silently=False)
-
+    
  
 
   

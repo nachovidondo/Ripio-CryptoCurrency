@@ -1,6 +1,8 @@
 from rest_framework import serializers
 from Accounts.models import Account
 
+
+
 #############################################[  GLOBALS  ]############################################
 
 INVALID_ACCOUNT_NUMBER = 'ESTE NUMERO DE CUENTA YA SE ENCUENTRA REGISTRADO EN EL SISTEMA'
@@ -11,7 +13,6 @@ INVALID_CURRENCY = 'EL USUARIO YA TIENE CUENTAS REGISTRADAS CON EL MISMO TIPO DE
 
 
 class AccountSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Account
         fields = '__all__'
@@ -32,7 +33,6 @@ class AccountSerializer(serializers.ModelSerializer):
         for account in account_number:
             if value != account.account_number :
                 return value
-            
             raise ValueError(INVALID_ACCOUNT_NUMBER)
         
     def validate_alias(self,value):

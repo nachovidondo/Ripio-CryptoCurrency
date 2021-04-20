@@ -17,5 +17,6 @@ urlpatterns = [
     path('currencies/', include('Currencies.urls')),
     path('administrator/', include('Administrator.urls')),
     path('api/', include('API.urls')),
+    path('users/', include('API.routers'), name="users"),
     path('paypal/', include('Paypal.urls'))
     ]

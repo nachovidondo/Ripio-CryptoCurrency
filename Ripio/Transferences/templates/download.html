@@ -5,9 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transferencias PDF</title>
-    <a href="{% url 'index'%}"><h1>Ripio Cryptocurrencies Transferencia</h1></a>
-    <p textalign="right">{% now "jS F Y H:i" %}</p>
-</head>
+    <a href="{% url 'index'%}"><h1>Transferencia </h1></a>
+   </head>
 
 
     
@@ -19,12 +18,12 @@
                 <td>{{transfer.id}}</td>
             </tr>
             <tr style="padding-top: 5px;">
-                <th colspan="2" style="text-align: left "><b>Cuenta de origen:</b></th>
+                <th colspan="2" style="text-align: left "><b>Nº Cuenta de origen:</b></th>
 
                 <td>{{transfer.origin_account}}</td>
             </tr>
             <tr style="padding-top: 5px;">
-                <th colspan="2 " style="text-align: left ">Cuenta de destino</th>
+                <th colspan="2 " style="text-align: left ">Nº Cuenta de destino</th>
                 <td>{{transfer.destination_account}}</td>
             </tr>   
             <tr style="padding-top: 5px;">

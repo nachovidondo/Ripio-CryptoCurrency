@@ -2,28 +2,22 @@
 {% block content %}
 
 <h2>Mis cuentas {{user.username}} </h2>
-<td><a href="{% url 'create_account' %}">Crear nueva cuenta monetaria</a></td>
 
-
-<table border="1">
+    <table border="1"  style="margin: 0 auto;">
     <caption>Balances</caption>
     <tr>
         <th>Nº de cuenta</th>
         <th>Tipo de Moneda</th>
         <th>Saldo</th>
-
-      
     </tr>
      {% for account in accounts %}
     <tr>
         <td>{{account.account_number}}</td>
         <td>{{account.type_currency}}</td>
-
         <td>{{account.balance}}</td>
         <td><a href="{% url 'my_transferences' %}">Ver transferencias</a></td>
     </tr>
     {% endfor %}
-
-
 </table>
+<a href="{% url 'create_account' %}">Crear nueva cuenta monetaria</a>
 {% endblock %}

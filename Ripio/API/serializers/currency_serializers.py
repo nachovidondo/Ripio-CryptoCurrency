@@ -1,6 +1,8 @@
 from rest_framework import serializers
 from Currencies.models import Currency
 
+
+
 #############################################[  GLOBALS  ]############################################
 CURRENCY_NAME = 'Ya existe una moneda con este nombre registrada en nuestro sistema '
 AMOUNT_VALUE = 'No puede crear una moneda con un monto de 0'
@@ -15,10 +17,9 @@ class CurrencySerializer(serializers.ModelSerializer):
         
     def to_representation(self, instance):
         return{
-                 
-                 'name': instance.name,
-                 'amount': instance.amount,
-                 'price':instance.price,
+            'name': instance.name,
+            'amount': instance.amount,
+            'price':instance.price,
                }
     #VALIDATIONS 
     def validate_name(self,value):
