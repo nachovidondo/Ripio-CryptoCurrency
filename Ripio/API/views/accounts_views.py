@@ -1,7 +1,7 @@
 from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework import status
-from apps.api.serializers.account_serializers import AccountSerializer
+from API.serializers.account_serializers import AccountSerializer
 
 
 

@@ -1,3 +1,12 @@
+from rest_framework import serializers
+from  Transferences.models import Transfer
+from API.serializers.currency_serializers import CurrencySerializer
+from API.serializers.account_serializers import AccountSerializer
+from Currencies.models import Currency
+from Accounts.models import Account
+
+#############################################[  GLOBALS  ]############################################
+
 INVALID_ORIGIN_ACCOUNT = 'CUENTA DE ORIGEN INVALIDA O NO REGISTRADA EN EL SISTEMA'
 INVALID_DESTINATION_ACCOUNT = 'CUENTA DE DESTINO INVALIDA O NO REGISTRADA EN EL SISTEMA'
 INVALID_RANGE = 'EL NUMERO INGRESADO ESTA FUERA DEL RANGO PERMITIDO'
@@ -5,7 +14,6 @@ INVALID_CURRENCY = 'EL TIPO DE MONEDA QUE DESEA TRANSFERIR ES INVALIDO PARA ESTA
 INVALID_ACCOUNTS = 'LAS CUENTAS DE ORIGEN Y DESTINO NO PUEDEN SER IGUALES'
 
 ##############################################[  MAIN  ]##############################################
-
 
 class TransferSerializer(serializers.ModelSerializer):
        class Meta:
@@ -15,7 +23,7 @@ class TransferSerializer(serializers.ModelSerializer):
        def to_representation(self, instance):
               return{
                  'id': instance.id,
-                 'origin_account': instance.origin_account,
+                 'origin_account': instance.origin_account.account_number,
                  'destination_account': instance.destination_account,
                  'creation_date': instance.creation_date,
                  'currency': instance.currency.name,

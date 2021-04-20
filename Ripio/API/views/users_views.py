@@ -1,5 +1,5 @@
 from rest_framework import generics
-from apps.api.serializers.user_serializers import UserSerializer
+from API.serializers.users_serializers import UserSerializer
 
 
 

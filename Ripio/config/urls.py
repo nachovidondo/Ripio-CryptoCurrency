@@ -16,5 +16,5 @@ urlpatterns = [
     path('tranferences/', include('Transferences.urls')),
     path('currencies/', include('Currencies.urls')),
     path('administrator/', include('Administrator.urls')),
-    path('API', include('API.urls')),
+    path('api/', include('API.urls')),
     ]

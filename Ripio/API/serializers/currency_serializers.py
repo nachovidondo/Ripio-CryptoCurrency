@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from Currency.models import Currency
+from Currencies.models import Currency
 
 class CurrencySerializer(serializers.ModelSerializer):
     class Meta:

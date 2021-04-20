@@ -1,5 +1,5 @@
 from rest_framework import generics
-from apps.api.serializers.currency_serializers import CurrencySerializer
+from API.serializers.currency_serializers import CurrencySerializer
 
 
 class CurrencyList(generics.ListCreateAPIView):
