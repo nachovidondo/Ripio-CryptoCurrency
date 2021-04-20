@@ -35,7 +35,8 @@ LOCAL_APPS=['Users',
             'Accounts',
             'Contact',
             'MainApp',
-            'Administrator'
+            'Administrator',
+            'API',
             ]
 THIRD_APPS=['crispy_forms',
             'rest_framework',
