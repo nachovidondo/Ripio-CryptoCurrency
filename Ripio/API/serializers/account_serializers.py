@@ -6,8 +6,6 @@ from Accounts.models import Account
 INVALID_ACCOUNT_NUMBER = 'ESTE NUMERO DE CUENTA YA SE ENCUENTRA REGISTRADO EN EL SISTEMA'
 INVALID_ALIAS = 'EL ALIAS PERTENECE A OTRA CUENTA DEL SISTEMA'
 INVALID_CURRENCY = 'EL USUARIO YA TIENE CUENTAS REGISTRADAS CON EL MISMO TIPO DE MONEDAS '
-INVALID_ALIAS_USERNAME = 'EL ALIAS NO PUEDE SER SIMILAR AL NOMBRE DE USUARIO'
-
 ##############################################[  MAIN  ]##############################################
 
 
@@ -55,8 +53,3 @@ class AccountSerializer(serializers.ModelSerializer):
                 if int(account.username.id) == int(data_username):
                     raise ValueError(INVALID_CURRENCY)
         return value
-    
-    def validate(self,data):
-        if str(data['username']) not in str(data['alias']):
-            return data
-        raise ValueError(INVALID_ALIAS_USERNAME)

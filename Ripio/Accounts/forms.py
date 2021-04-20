@@ -6,9 +6,9 @@ from Currencies.models import Currency
 
 
 #############################################[  GLOBALS  ]############################################
-ACCOUNT_NUMBER = 'Ya existe una cuenta con el mismo numero  registrada en nuestro sistema '
-ALIAS_EQUAL = 'Ya existe este alias registrado en nuestro sistema'
-BALANCE_VALUE = 'No puede crear una cuenta sin dinero , por favor solicite monedas en nuestra seccion de compras'
+INVALID_ACCOUNT_NUMBER = 'ESTE NUMERO DE CUENTA YA SE ENCUENTRA REGISTRADO EN EL SISTEMA'
+INVALID_ALIAS = 'EL ALIAS PERTENECE A OTRA CUENTA DEL SISTEMA'
+INVALID_BALANCE_VALUE = 'No puede crear una cuenta sin dinero , por favor solicite monedas en nuestra seccion de compras'
 ##############################################[  MAIN  ]##############################################
 
 
@@ -73,7 +73,7 @@ class AccountForm(forms.ModelForm):
         list_accounts = Account.objects.all()
         for accounts in list_accounts:
             if account_number == accounts.account_number:
-                raise forms.ValidationError(ACCOUNT_NUMBER)
+                raise forms.ValidationError(INVALID_ACCOUNT_NUMBER)
             else:
                 return account_number
                
@@ -83,13 +83,14 @@ class AccountForm(forms.ModelForm):
         list_accounts = Account.objects.all()
         for accounts in list_accounts:
             if alias == accounts.alias:
-                raise forms.ValidationError(ALIAS_EQUAL)
+                raise forms.ValidationError(INVALID_ALIAS)
             else:
                 return alias
+            
     def clean_balance(self,*args,**kwargs):
         #is the balance less than 0?
         balance= self.cleaned_data.get('balance')
         if balance <= 0 :
-            raise forms.ValidationError(BALANCE_VALUE)
+            raise forms.ValidationError(INVALID_BALANCE_VALUE)
         else:
             return balance
