@@ -37,6 +37,7 @@ LOCAL_APPS=['Users',
             'MainApp',
             'Administrator',
             'API',
+            'Paypal'
             ]
 THIRD_APPS=['crispy_forms',
             'rest_framework',
