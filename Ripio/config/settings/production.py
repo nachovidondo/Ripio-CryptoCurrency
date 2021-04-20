@@ -13,11 +13,10 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'ripio_currencies',
         'USER': 'nachovidondo',
-        'PASSWORD':'hola', 
+        'PASSWORD':'Ignacio43', 
         'HOST':'localhost',
         'PORT':'',
     }
-}
 
 
 # Static files (CSS, JavaScript, Images)

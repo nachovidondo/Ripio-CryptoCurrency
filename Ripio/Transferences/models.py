@@ -1,8 +1,10 @@
 from django.db import models
+from django.core.mail import send_mail
 from django.dispatch import receiver
 from django.db.models.signals import post_save, post_delete
 from Currencies.models import Currency
 from Accounts.models import Account
+from Users.models import User
 
 
 
@@ -44,3 +46,19 @@ def transfer_save_detail(sender, instance, **kwargs):
         increase = int(account_destination.balance) + int(amount)
         account_destination.balance = increase
         account_destination.save()
+   
+    #Send email to users 
+    origin_user= User.objects.get(username=origin_account.username)
+    destination_user = User.objects.get(username=account_destination.username)
+    email_origin=origin_user.email
+    email_destination = destination_user.email
+    send_mail('Ripio nuevo transferencia generada', 
+                  'Transferencia generada donde tu cuenta se encuentra involucrada. Aqui podras revisarla : http://127.0.0.1:8000/tranferences/ .. Muchas gracias',
+                  'ripiocurrencies@gmail.com', 
+                   [email_origin,email_destination],
+                  fail_silently=False)
+
+ 
+
+  
+  

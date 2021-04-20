@@ -29,8 +29,13 @@ class TransferForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         #Function to filter all the accounts from the user login
            user = kwargs.pop('username')
+          
+           account = Account.objects.filter(username=user)
+           account_currency = account[0].type_currency.name
+        
            super(TransferForm, self).__init__(*args, **kwargs)
            self.fields['origin_account'].queryset = Account.objects.filter(username=user)
+           #self.fields ['currency'].queryset = Transfer.objects.filter(currency__name=account_currency)
 
           
            
@@ -52,6 +57,10 @@ class TransferForm(forms.ModelForm):
             raise forms.ValidationError(AMOUNT_ACCOUNT)
         else:
             return amount
+    def clean_type_currency(self,*args,**kwargs):
+        currency = self.cleaned_data.get('type_currency')
+        print(currency)
+        return currency
    
         
 

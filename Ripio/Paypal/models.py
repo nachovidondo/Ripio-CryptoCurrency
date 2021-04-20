@@ -5,7 +5,8 @@ from django.db import models
 class Product(models.Model):
 	name = models.CharField(max_length=200)
 	description = models.TextField(null=True, blank=True)
-	image_url = models.ImageField(null=True, blank=True, default =True)
+	image_url = models.ImageField(
+     null=True, blank=True,upload_to="images", default =True)
 	price = models.FloatField(null=True, blank=True)
 
 	def __str__(self):
