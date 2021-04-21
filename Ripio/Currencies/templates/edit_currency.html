@@ -2,19 +2,19 @@
 {% block content %}
 {% load crispy_forms_tags %}
 
-<div class ="card">
-    <div class="card-header">
-    <strong class="card-title">Editar moneda </strong>
+<div style="width: 450px;  margin: 20px auto; padding: 10px;">
+    <div>
+    <h2>Editar moneda </h2>
 </div>
-<div class="card-body">
+<div style="margin: 20px auto; ">
 <form method="post">
     {% csrf_token %}
-    
     {{ form|crispy }}
     <div class="card-footer">
         <button class="btn btn-primary" type="submit">Editar</button>
-        <a href="{% url 'index' %}" class="btn btn-danger"></a>Cancelar</a>
+        <button><a href="{% url 'index' %}" class="btn btn-danger">Cancelar</a></button>
     </div>
 </form> 
-
+</div>
+</div>
 {% endblock %}

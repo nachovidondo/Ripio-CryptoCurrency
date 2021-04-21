@@ -21,11 +21,11 @@
             <td>{{transfer.origin_account}}</td>
             <td>{{transfer.destination_account}}</td>
             <td>{{transfer.amount}}</td>
-            <td>  <a href="{% url 'download' transfer.id %}">Ver en PDF</a></td>
+            <td> <button><a href="{% url 'download' transfer.id %}">Ver en PDF</a></button></td>
         </tr>
         {% endfor %}
     </table>
 </div>
-<strong><a href="{% url 'create_transfer' %}">Nueva transferencia </a></strong>
+<strong><button><a href="{% url 'create_transfer' %}">Nueva transferencia </a></button></strong>
 {% endblock %}
 .table-container { background-color: red;}

@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>Administrador</h2>
+<div style="margin: 10px auto; ">
+<h2  style="text-align:center; margin : 10px auto;">Administrador</h2>
 <nav>
-    <a href="{% url 'list_currencies' %}">Monedas</a>
-    <a href="{% url 'transfer' %}">API- Transferencias</a>
-    <a href="http://127.0.0.1:8000/users/users/">API-Usuarios</a>
-    <a href="{% url 'accounts' %}">API-Cuentas</a>
+    <a href="{% url 'list_currencies' %}"><button>Monedas</button></a>
+    <a href="{% url 'transfer' %}"><button>API- Transferencias</button></a>
+    <a href="http://127.0.0.1:8000/users/users/"><button>API-Usuarios</button></a>
+    <a href="{% url 'accounts' %}"><button>API-Cuentas</button></a>
 </nav>
-
+</div>
 {% endblock %}

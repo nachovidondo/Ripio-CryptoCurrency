@@ -1,16 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h2>Transferencias Generales </h2>
+<h2  style="text-align:center; margin : 10px auto;">Transferencias Generales </h2>
 
-
+<div style="width: 450px;  margin: 10px auto; padding: 10px;">
 <table border="1"  style="margin: 0 auto;">
     <caption>Cotizacion con respecto al USD</caption>
     <tr>
         <th>Fecha y hora </th>
         <th>Moneda </th>
-        <th>Precio</th>
-        <th>Actualizacion</th>
+        <th>Precio</th> 
+     
      </tr>
      {% for currency in object_list %}
     <tr>
@@ -20,8 +20,9 @@
         <td>{{currency.price}}</td>
         <td>{{currency.}}</td>
         <td>{{transfer.amount}}</td>
-        <td>{{transfer.update_date}}</td>
+    
     </tr>
     {% endfor %}
 </table>
+</div>
 {% endblock %}
