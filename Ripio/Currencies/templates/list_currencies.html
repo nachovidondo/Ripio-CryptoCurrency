@@ -21,9 +21,9 @@
         <td><a href="{% url 'edit_currency' currency.id %}">Editar</a></td>
         <td><a href="{% url 'delete_currency' currency.id %}">Eliminar</a></td>
     </tr>
+
     {% endfor %}    
 </table>
- 
-   
+
     <button><a href="{% url 'new_currency' %}">Nueva moneda</a></button>
 {% endblock %}

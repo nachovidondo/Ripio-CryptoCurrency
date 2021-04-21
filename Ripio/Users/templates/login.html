@@ -3,7 +3,7 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
-<div style="width: 450px;  margin: 0 auto; padding: 10px;">
+<div style="width: 450px;  margin: 10px auto; padding: 10px;">
 <h2>Login</h2>
 <form method="post">
   {% csrf_token %}
@@ -11,14 +11,16 @@
     
   <strong>Advertencia: </strong> {{ form.get_invalid_login_error }}
   {% endif %}
+  <div style="margin: 20px auto;">
    {{ form|crispy}}
+  </div>
    <button type="submit" class="btn btn-primary">Login</button>
 </form>
 </div>
 <div style="width: 450px;  margin: 0 auto; padding: 10px;">
-<a href="{% url 'reset_password' %}">Olvido su contraseña?</a>
-<a href="{% url 'register' %}">Crear cuenta </a>
-<a href="{% url 'contact' %}">Contactanos</a>
+<a href="{% url 'reset_password' %}"><button>Olvido su contraseña?</button></a>
+<a href="{% url 'register' %}"><button>Crear cuenta</button> </a>
+<a href="{% url 'contact' %}"><button>Contactanos</button></a>
 </div>
 
 {% endblock %}

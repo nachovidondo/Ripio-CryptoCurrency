@@ -1,6 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
-<h6>Transaccion sujeta a espera momentanea. En unos intantes finalizaremos las validaciones </h6>
-<a href="{% url 'index' %}"> Apreta aqui para redirigirte a la pagina de inicio </a>
-<a href="{% url 'logout' %}">Cerrar sesion</a>
+<div style="width: 450px;  margin: 10px auto; padding: 10px;">
+<h3>Transaccion sujeta a espera momentanea. En unos intantes finalizaremos las validaciones </h3>
+</div>  
+<div style="margin: 10px auto;"></div>
+<ul>
+    <li>
+    <a href="{% url 'index' %}"><button>Inicio </button></a>
+</li>
+<li>
+<a href="{% url 'logout' %}"><button>Cerrar sesion</button></a>
+</li>
+</ul>
+
+</div>
 {% endblock %}

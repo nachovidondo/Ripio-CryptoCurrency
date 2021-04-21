@@ -67,30 +67,21 @@ class AccountForm(forms.ModelForm):
            self.fields['username'].queryset = User.objects.filter(username=user)
            
     #Validations
-    def clean_account_number(self,*args,**kwargs):
-        #Is this account already in out system?
-        account_number= self.cleaned_data.get('account_number')
+    def clean(self):
+        #INSTANCE OF FORM FIELDS
+        data_account_number= self.cleaned_data.get('account_number')
+        data_alias = self.cleaned_data.get('alias')
+        data_balance = self.cleaned_data.get('balance')
+        #Validate for account number and alias
         list_accounts = Account.objects.all()
         for accounts in list_accounts:
-            if account_number == accounts.account_number:
+            if data_account_number == accounts.account_number:
                 raise forms.ValidationError(INVALID_ACCOUNT_NUMBER)
-            else:
-                return account_number
-               
-    def clean_alias(self,*args,**kwargs):
-        #is this alias already in our system?
-        alias= self.cleaned_data.get('alias')
-        list_accounts = Account.objects.all()
-        for accounts in list_accounts:
-            if alias == accounts.alias:
-                raise forms.ValidationError(INVALID_ALIAS)
-            else:
-                return alias
-            
-    def clean_balance(self,*args,**kwargs):
-        #is the balance less than 0?
-        balance= self.cleaned_data.get('balance')
-        if balance < 0 or balance > 0:
+            if data_alias == accounts.alias:
+                 raise forms.ValidationError(INVALID_ALIAS)
+         #Validate for balance must be 0
+        if data_balance < 0 or data_balance > 0:
             raise forms.ValidationError(INVALID_BALANCE_VALUE)
         else:
-            return balance
+            return self.cleaned_data
+     
