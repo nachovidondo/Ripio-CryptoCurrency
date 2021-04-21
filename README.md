@@ -39,14 +39,18 @@ Objetivos de Desarrollo
 
 Desarrollo del proyecto
 =======================================================
-Se procedió a la creación del proyecto mediante la utilización de Django como plataforma de trabajo de desarollo backend. Realicé la implementación de la lógica del proyecto y la creación de los modelos en la base de datos. Estos modelos son las estructuras fundamentales del proyecto, cuentan con validación en los formularios y las vistas filtrando elementos de la base de datos. 
- Todas las funciones estan protegidas por un login_required y cuando el usuario al generar un nuevo login recibe un email a su cuenta personal donde se comunica que alguien está siendo logeado con su cuenta.
-Trabaje en la implementación de transferencias entre los usuarios, generando en ellas cierta lógica, donde cada usuario es capaz de transferir desde su propia cuenta, la cual posee un tipo de moneda especifico. En cada transferencia realizada, mediante un Signal
- se procede al ajuste de la cantidad de dinero entre las cuentas de los usuarios involucrados en la transferencia, sumando a esto la implementación de una sumatoria de monedas, corroborando que el total que tienen todos los usuarios sea igual a la cantidad de monedas que está dando giros en el mercado. Se implemento
- el reenvío de emails automáticos para informar a los usuarios que se ha generado una transferencia con su cuenta (tanto el usuario que envía como el que recibe).
- Como en todas las monedas virtuales, uno de los pasos de seguridad es la capacidad de visualización publica de las transferencias realizadas. En este caso he implementado una vista donde cualquier usuario es capaz de ver las transferencias realizadas por todos los demás usuarios. En lo que respecta a las transferencias personales, realicé una vista donde detallo por medio de una tabla la cantidad de transferencias con la capacidad de visualizarlas en formato PDF y si es requerido por el usuario descargarlas.
- A su vez se genero la capacidad de compra de monedas a través de la plataforma virtual de Paypal ,utilice el código de la documentación de este servicio y lo adjunte en una aplicación con su nombre. La razón de implementarlo no es que sea funcional ya que este proyecto es solo a modo de prueba técnica, pero si no fuese asi , el sistema puede ser configurado con Paypal para la adquisición de las monedas departe del usuario que realiza la compra, y a su vez la implementación de nuevas monedas en el sistema. 
- Para poder tener un control de la cantidad de monedas en el sistema , se implementó una función (la cual esta comentada en Transferences/forms.py ) que realiza la sumatoria de todas las monedas de las cuentas de los usuarios y las compara con el balance de monedas que el sistema tiene por cada transferencia que los usuarios realizan.
+Este proyecto se desarrollo utilizando Django. 
+Considero los modelos plasmados en la base de datos como estructuras fundamentales del proyecto, que cuentan con validación en los formularios y las vistas filtrando elementos de la base de datos. Todas las funciones están protegidas por un login_required y por cada nuevo login el usuario es notificado por email. 
+
+* Trasnferencias:
+               Los usuarios pueden transferir desde su propia cuenta, las cuales tienen  un tipo de moneda especifico. 
+               En cada transferencia realizada, se envían emails automáticamente a los usuarios (de la cuenta origin y destino), notificando la operacion realizada.Tambien mediante un Signal se ajusta la cantidad de dinero entre las cuentas de los usuarios involucrados en la transferencia. Adicionalmente, se corrobora que el total en tenencia por los usuarios sea igual a la cantidad en circulación de cada moneda. La funcion que registra la cantidad de  monedas esta comentada , ya que el proyecto es de prueba, pero esto seria una forma de controlar la seguridad del sitema , mediante el control monetario.
+               Como en todas las monedas virtuales, se intenta garantizar la seguridad mediante la publicación de las transferencias realizadas. Para ello, creé una vista donde las transferencias realizadas se muestren publicamente.
+               Respecto a las transferencias personales, se pueden ver en "Mis transfencias" y descargar en formato PDF si asi se fuese requerido.
+
+* Paypal:
+        El sistema cuenta con la capacidad de comprar monedas por medio de Paypal, utilice el código de la documentación de este servicio y lo adjunte en una aplicación con su nombre. 
+        A futuro, el proyecto podría ser configurado con Paypal para la adquisición de las monedas por parte del usuario, y a su vez la implementación de nuevas monedas en el sistema. 
 
 Conclusion
 =======================================================
