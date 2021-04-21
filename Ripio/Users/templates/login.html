@@ -11,13 +11,14 @@
     
   <strong>Advertencia: </strong> {{ form.get_invalid_login_error }}
   {% endif %}
-
-  {{ form|crispy}}
-  <button type="submit" class="btn btn-primary">Login</button>
+   {{ form|crispy}}
+   <button type="submit" class="btn btn-primary">Login</button>
 </form>
+</div>
+<div style="width: 450px;  margin: 0 auto; padding: 10px;">
 <a href="{% url 'reset_password' %}">Olvido su contraseña?</a>
 <a href="{% url 'register' %}">Crear cuenta </a>
 <a href="{% url 'contact' %}">Contactanos</a>
 </div>
-</div>
+
 {% endblock %}

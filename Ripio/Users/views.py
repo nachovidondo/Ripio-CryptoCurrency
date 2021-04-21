@@ -7,6 +7,7 @@ from django.contrib.auth import login, logout
 from django.http import HttpResponseRedirect
 from django.views.generic.edit import FormView
 from django.views.generic import CreateView, View
+from django.core.mail import send_mail
 from .models import User
 from .forms import UserForm, LoginForm
 
@@ -25,11 +26,21 @@ class Login(FormView):
         #Not User authenticated  -> Login again
         else:
             return super(Login,self).dispatch(request,*args, **kwargs)
-        
+    
     def form_valid(self,form):
         #Validate if there is a user and login
         login(self.request,form.get_user())
+        #Login Send email
+        user = User.objects.filter(username=self.request.user).first()
+        email_user = user.email
+        send_mail('Ripio nuevo ingreso a su cuenta', 
+                  'Hola acabamos de registrar un ingreso a tu cuenta Ripio, si fuiste vos desestima este email. Es simpletemente una medida adicional de seguridad para que puedas monitorear los ingresos a tu cuenta . Si no fuiste vos , te pedimos que te comuniques con nosotros',
+                  'ripiocurrencies@gmail.com', 
+                   [email_user],
+                  fail_silently=False)
+        print("email sent")
         return super(Login,self).form_valid(form)
+        
 
 
 class UserRegister(CreateView):

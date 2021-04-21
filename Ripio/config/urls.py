@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.urls import path, include
 from Users.views import Login, logoutUsuario
@@ -20,3 +21,7 @@ urlpatterns = [
     path('users/', include('API.routers'), name="users"),
     path('paypal/', include('Paypal.urls'))
     ]
+
+if settings.DEBUG:
+    from django.conf.urls.static import static
+    urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
