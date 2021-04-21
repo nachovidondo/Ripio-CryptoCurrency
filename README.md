@@ -43,16 +43,16 @@ Este proyecto se desarrollo utilizando Django.
 Los modelos plasmados en la base de datos son estructuras fundamentales del proyecto, que cuentan con validación en los formularios y las vistas filtrando elementos de la base de datos. 
 Todas las funciones están protegidas por un login_required y por cada nuevo login el usuario es notificado por email. 
 
-- Trasnferencias:
+- Transferencias:
 
-Los usuarios pueden transferir desde su propia cuenta, las cuales tienen  un tipo de moneda especifico. 
+               Los usuarios pueden transferir desde su propia cuenta, las cuales tienen  un tipo de moneda especifico. 
                En cada transferencia realizada, se envían emails automáticamente a los usuarios (de la cuenta origin y destino), notificando la operacion realizada.Tambien mediante un Signal se ajusta la cantidad de dinero entre las cuentas de los usuarios involucrados en la transferencia. Adicionalmente, se corrobora que el total en tenencia por los usuarios sea igual a la cantidad en circulación de cada moneda. La funcion que registra la cantidad de  monedas esta comentada , ya que el proyecto es de prueba, pero esto seria una forma de controlar la seguridad del sitema , mediante el control monetario.
                Como en todas las monedas virtuales, se intenta garantizar la seguridad mediante la publicación de las transferencias realizadas. Para ello, creé una vista donde las transferencias realizadas se muestren publicamente.
                Respecto a las transferencias personales, se pueden ver en "Mis transfencias" y descargar en formato PDF si asi se fuese requerido.
 
 - Paypal:
 
-El sistema cuenta con la capacidad de comprar monedas por medio de Paypal, utilice el código de la documentación de este servicio y lo adjunte en una aplicación con su nombre. 
+         El sistema cuenta con la capacidad de comprar monedas por medio de Paypal, utilice el código de la documentación de este servicio y lo adjunte en una aplicación con su nombre. 
         A futuro, el proyecto podría ser configurado con Paypal para la adquisición de las monedas por parte del usuario, y a su vez la implementación de nuevas monedas en el sistema. 
 
 Conclusion
