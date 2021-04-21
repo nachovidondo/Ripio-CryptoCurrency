@@ -15,11 +15,11 @@ Instalacion
 
 Configuracion del entorno virtual - virtualenv (nombre de su entorno virtual) /
 
- -pip install django/
- -pip install django_rest_framework
- -pip install psycopg2
- -pip install pillow
- -pip install django_crispy_forms
+- pip install django/
+- pip install django_rest_framework
+- pip install psycopg2
+- pip install pillow
+- pip install django_crispy_forms
 - pip install xhtml2pdf
 
 
