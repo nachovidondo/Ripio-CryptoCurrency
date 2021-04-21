@@ -35,7 +35,7 @@ class CreateTransfer(CreateView):
     model = Transfer
     template_name = 'create_transfer.html'
     form_class = TransferForm
-    success_url = reverse_lazy('succesfull_transfer')
+    success_url = reverse_lazy('transactions')
     def get_form_kwargs(self):
         #Function to filter all the accounts from the user login
         kwargs = super(CreateTransfer, self).get_form_kwargs()
@@ -68,5 +68,3 @@ def transactions(request):
     return render(request, 'transactions.html')
 
 
-def succesfull_transfer(request):
-    return render(request, 'succesfull_transfer.html')

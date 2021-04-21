@@ -15,7 +15,5 @@ urlpatterns = [
          name="create_transfer"),
     path('transactions/', login_required(views.transactions),
          name="transactions"),
-    path('succesfull_transfer', login_required(views.succesfull_transfer), 
-         name="succesfull_transfer"),
     path('download/<int:pk>/', login_required(Download.as_view()), name='download')
 ]

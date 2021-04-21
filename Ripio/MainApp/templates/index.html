@@ -5,7 +5,7 @@
     <a href="{% url 'accounts_balance' %}">Mis cuentas</a>
     <a href="{% url 'my_transferences' %}">Mis Transferencias</a>
     <a href="{% url 'all_transferences' %}">Transferencias Generales</a>
-    <a href="{% url 'transactions' %}">Transacciones</a>
+    <a href="{% url 'store' %}">Comprar monedas</a>
     <a href="{% url 'currencies_price' %}">Cotizacion</a>
     <a href="{% url 'logout' %}">Logout</a>
     {% if user.is_staff %}
@@ -23,7 +23,7 @@
         <ul>
             {% for currency in object_list %}
             <li>
-                <p>{{currency.name}}</p><p><strong>{{currency.price}}</strong></p><p>/USD</p>
+                <p>{{currency.name}}</p><p><strong>${{currency.price}}</strong></p><p>/USD</p>
             </li>
           
             {% endfor %}

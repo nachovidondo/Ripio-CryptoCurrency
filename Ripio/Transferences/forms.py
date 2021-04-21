@@ -10,6 +10,7 @@ ACCOUNT_UNKOWN = 'La cuenta de destino no esta registrada en el sistema, por fav
 AMOUNT_VALUE = 'No puede transferir un monto menor o igual a 0'
 AMOUNT_ACCOUNT = 'Su saldo es insuficiente para realizar esta transferencia'
 CURRENCY_INVALID = 'Las cuentas solicitadas no poseen la moneda seleccionada'
+SECURITY_MESSAGE = 'Por razones de seguridad su transferencia ha sido invalida , comuniquese con nosotros'
 ##############################################[  MAIN  ]##############################################
 
 
@@ -38,16 +39,18 @@ class TransferForm(forms.ModelForm):
            user = kwargs.pop('username')
            super(TransferForm, self).__init__(*args, **kwargs)
            self.fields['origin_account'].queryset = Account.objects.filter(username=user)
-    #VALIDATIONS WITH ACCOUNTS - TYPE OF CURRENCY - AMOUNT 
+           
+    #VALIDATIONS 
     def clean(self):
         #INSTANCE OF FORM FIELDS
+        total=0
         data_origin_account = self.cleaned_data.get('origin_account')
         data_destination_account = self.cleaned_data.get('destination_account')
         data_currency = self.cleaned_data.get('currency')
         data_amount = self.cleaned_data.get('amount')
         origin_account = Account.objects.filter(account_number=data_origin_account).first()
         destination_account = Account.objects.filter(account_number=data_destination_account).first()
-        
+          #VALIDATIONS BETWEEN ACCOUNTS - TYPE OF CURRENCY - AMOUNT 
         if destination_account:
             if origin_account.type_currency != data_currency:
                 raise forms.ValidationError(CURRENCY_INVALID)
@@ -59,4 +62,17 @@ class TransferForm(forms.ModelForm):
                 raise forms.ValidationError(AMOUNT_VALUE )
             return self.cleaned_data
         raise forms.ValidationError(ACCOUNT_UNKOWN)
+    
+'''     Validations to avoid double transaction :
+        It is commented because it does not have control of the admin and 
+        it would return error constantly, it should be have an automatical control with 
+        paypal orderings.
+        all_accounts = Account.objects.filter(type_currency=data_currency)
+        for accounts in all_accounts:
+                total += accounts.balance
+                #All balance equal to currency amount
+        if total != data_currency.amount:
+        raise forms.ValidationError(SECURITY_MESSAGE)'''
+        
+       
    

@@ -1,13 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>Transacciones</h2>
-
-<ul>
-   
-    <li>
-        <strong><a href="{% url 'store' %}">Comprar monedas virtuales </a></strong>
-
-    </li>
- 
-</ul>
-{% endblock %}>
+<h6>Transaccion sujeta a espera momentanea. En unos intantes finalizaremos las validaciones </h6>
+<a href="{% url 'index' %}"> Apreta aqui para redirigirte a la pagina de inicio </a>
+<a href="{% url 'logout' %}">Cerrar sesion</a>
+{% endblock %}

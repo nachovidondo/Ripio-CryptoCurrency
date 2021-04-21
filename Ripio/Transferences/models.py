@@ -11,8 +11,7 @@ from Users.models import User
 class Transfer(models.Model):
     id = models.AutoField(primary_key=True)
     origin_account = models.ForeignKey(
-        Account, on_delete=models.CASCADE,
-        verbose_name="Cuenta de origen"
+        Account, on_delete=models.CASCADE,verbose_name="Cuenta de origen"
         )
     destination_account = models.CharField(
         max_length=200,verbose_name="Cuenta de destino"

@@ -57,7 +57,7 @@ class User(AbstractBaseUser):
         
     #Atribute to get Login
     USERNAME_FIELD = 'username'
-    #Fields required in when create user
+    #Fields required  when we create user
     REQUIRED_FIELDS = ['email', 'name','surname']
     
     def __str__(self):
