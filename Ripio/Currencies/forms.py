@@ -24,13 +24,6 @@ class CurrencyForm(forms.ModelForm):
         model = Currency
         fields = ('name','image','amount','price')
         widget = {
-        'name':forms.TextInput(
-            attrs={
-                'class':'form-control',
-                'placeholder':'Nombre',
-                }
-            )},
-        {
         'image':forms.ImageField()
         },
         
@@ -40,14 +33,7 @@ class CurrencyForm(forms.ModelForm):
         {
         'price':forms.FloatField()
         } 
-    def clean_name(self,*args,**kwargs):
-        name = self.cleaned_data.get('name')
-        currencies = Currency.objects.all()
-        for currency in currencies:
-            if name == currency.name:
-                raise forms.ValidationError(CURRENCY_NAME)
-            else:
-                return name
+
     def clean_amount(self,*args,**kwargs):
         amount = self.cleaned_data.get('amount')
         if int(amount)<= 0:

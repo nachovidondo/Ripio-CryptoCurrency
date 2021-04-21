@@ -8,7 +8,7 @@ from Currencies.models import Currency
 #############################################[  GLOBALS  ]############################################
 INVALID_ACCOUNT_NUMBER = 'ESTE NUMERO DE CUENTA YA SE ENCUENTRA REGISTRADO EN EL SISTEMA'
 INVALID_ALIAS = 'EL ALIAS PERTENECE A OTRA CUENTA DEL SISTEMA'
-INVALID_BALANCE_VALUE = 'No puede crear una cuenta sin dinero , por favor solicite monedas en nuestra seccion de compras'
+INVALID_BALANCE_VALUE = 'Coloque 0 en el saldo de su cuenta , para comprar monedas solicite en nuestra seccion de compras '
 ##############################################[  MAIN  ]##############################################
 
 
@@ -34,7 +34,7 @@ class AccountForm(forms.ModelForm):
     balance = forms.IntegerField(label="Saldo")
     class Meta:
         model = Account
-        fields = ('account_number','alias','type_currency','balance','username')
+        fields ='__all__'
         widget = {
         'account_number':forms.TextInput(
             attrs={
@@ -50,7 +50,7 @@ class AccountForm(forms.ModelForm):
                 }
             )},
         {
-        'balance':forms.FloatField()
+        'balance':forms.IntegerField()
         },
         {
         'username':forms.TextInput(
@@ -90,7 +90,7 @@ class AccountForm(forms.ModelForm):
     def clean_balance(self,*args,**kwargs):
         #is the balance less than 0?
         balance= self.cleaned_data.get('balance')
-        if balance <= 0 :
+        if balance < 0 or balance > 0:
             raise forms.ValidationError(INVALID_BALANCE_VALUE)
         else:
             return balance
