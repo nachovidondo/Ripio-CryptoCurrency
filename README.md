@@ -1,5 +1,9 @@
 Ripio Cryptocurrencies
 =======================================================
+<img src="Ripio/images/Untitled Diagram(1).png" width="800" height="500">
+
+<br>
+<br>
 
 Este repositorio tiene el objetivo de mostrar un proyecto 
 personal donde se realiza el planteamiento de una plataforma
@@ -15,13 +19,7 @@ Instalacion
 
 Configuracion del entorno virtual - virtualenv (nombre de su entorno virtual) /
 
-- pip install django/
-- pip install django_rest_framework
-- pip install psycopg2
-- pip install pillow
-- pip install django_crispy_forms
-- pip install xhtml2pdf
-
+- pip install -r requirements.txt
 
 Objetivos de Desarrollo
 =============================
@@ -61,8 +59,6 @@ En lo que respecta al proyecto , se intento realizar la mayor cantidad de sobre 
 En lo personal agradezco a las personas de la empresa que me ha dado la oportunidad de tomar esta prueba desarrollarla y mostrarla.
 
 
-<br>
-<br>
 
 
-<img src="Ripio/images/Untitled Diagram(1).png" width="800" height="500">
+
