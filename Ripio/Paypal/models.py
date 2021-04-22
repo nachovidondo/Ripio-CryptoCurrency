@@ -3,6 +3,7 @@ from django.db import models
 
 
 class Product(models.Model):
+    #ALL THE PRODUCTS 
 	name = models.CharField(max_length=200)
 	description = models.TextField(null=True, blank=True)
 	image_url = models.ImageField(

@@ -9,7 +9,7 @@ AMOUNT_VALUE = 'No puede crear una moneda con un monto de 0'
 
 
 class CurrencyForm(forms.ModelForm):
-    #Form to register a new Currency in a database
+    #FORM TO REGISTER A NEW CURRENCY IN A DATABASE 
     name = forms.CharField(label="Nombre", widget = forms.TextInput(
         attrs={
             'class':'form-control',
@@ -33,7 +33,7 @@ class CurrencyForm(forms.ModelForm):
         {
         'price':forms.FloatField()
         } 
-
+    #VALIDATE FOR THE AMOUNT MUST BE > 0
     def clean_amount(self,*args,**kwargs):
         amount = self.cleaned_data.get('amount')
         if int(amount)<= 0:

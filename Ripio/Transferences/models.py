@@ -33,11 +33,14 @@ class Transfer(models.Model):
 #Signal to control User Currency amount
 @receiver(post_save, sender=Transfer)
 def transfer_save_detail(sender, instance, **kwargs):
+    #INSTANCE OF FORM FIELDS
     origin_account= instance.origin_account
     destination_account = instance.destination_account
     amount = instance.amount
     currency = instance.currency
+    #INSTANCE FOR DESTINATION ACCOUNT 
     account_destination = Account.objects.get(account_number=destination_account)
+    #OPERATION BETWEEN USERS ACCOUNTS
     if origin_account:
         discount = int(origin_account.balance) - int(amount)
         origin_account.balance=discount
@@ -47,7 +50,7 @@ def transfer_save_detail(sender, instance, **kwargs):
         account_destination.balance = increase
         account_destination.save()
    
-    #Send email to users 
+    #SEND EMAIL TO THE USERS INVOLVED IN THE TRANSFER
     origin_user= User.objects.get(username=origin_account.username)
     destination_user = User.objects.get(username=account_destination.username)
     email_origin=origin_user.email

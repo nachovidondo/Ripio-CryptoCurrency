@@ -22,16 +22,16 @@ class Login(FormView):
     @method_decorator(never_cache)
     def dispatch(self,request,*args, **kwargs):
         if request.user.is_authenticated:
-            #User Authenticated  -> index
+            #USER AUTHENTICATED -> INDEX
             return HttpResponseRedirect(self.get.success_url())
-        #Not User authenticated  -> Login again
+        #USER NOT AUTHENTICADED ->LOGIN AGAIN
         else:
             return super(Login,self).dispatch(request,*args, **kwargs)
     
     def form_valid(self,form):
-        #Validate if there is a user and login
+        #SAVE THE USER
         login(self.request,form.get_user())
-        #Login Send email
+        #LOGIN SEND EMAIL TO THE USER
         user = User.objects.filter(username=self.request.user).first()
         email_user = user.email
         send_mail('Ripio nuevo ingreso a su cuenta', 
@@ -49,7 +49,7 @@ class UserRegister(CreateView):
     template_name = 'register.html'
     
     def post(self,request,*args, **kwargs):
-        # method to save password encrypted
+        # METHOD TO SAVE THE PASSWORD ENCRIPTED
         form = self.form_class(request.POST)
         if form.is_valid():
             new_user = User(

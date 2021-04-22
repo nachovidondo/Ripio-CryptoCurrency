@@ -11,6 +11,7 @@ class AccountsBalance(ListView):
     template_name = 'accounts_balance.html'
     context_object_name = 'accounts'
     def get_queryset(self):
+        #FILTER BY USER LOGIN
         queryset = Account.objects.filter(username=self.request.user)
         return queryset
 
@@ -21,7 +22,7 @@ class CreateAccount(CreateView):
     form_class =  AccountForm
     success_url = reverse_lazy('index')
     def get_form_kwargs(self):
-        #Filter by user login
+        #FILTER BY USER LOGIN
         kwargs = super(CreateAccount, self).get_form_kwargs()
         kwargs['username'] = self.request.user
         return kwargs

@@ -14,7 +14,7 @@ INVALID_BALANCE_VALUE = 'Coloque 0 en el saldo de su cuenta , para comprar moned
 
 
 class AccountForm(forms.ModelForm):
-    #Form to register a new Account in a database
+    #Form to register a new Account created in a database
     account_number = forms.CharField(label="Numero de cuenta", widget = forms.TextInput(
         attrs={
             'class':'form-control',
@@ -60,26 +60,26 @@ class AccountForm(forms.ModelForm):
                 }
             )},
         
-    #Filter by user login
+    
     def __init__(self, *args, **kwargs):
+           #FILTER BY USER LOGIN
            user = kwargs.pop('username')
            super(AccountForm, self).__init__(*args, **kwargs)
            self.fields['username'].queryset = User.objects.filter(username=user)
-           
-    #Validations
+     #VALIDATIONS
     def clean(self):
-        #INSTANCE OF FORM FIELDS
+        #INSTANCE OF  THE FORM FIELDS
         data_account_number= self.cleaned_data.get('account_number')
         data_alias = self.cleaned_data.get('alias')
         data_balance = self.cleaned_data.get('balance')
-        #Validate for account number and alias
+        #VALIDATE FOR ACCOUNTS NUMBER AND ALIAS
         list_accounts = Account.objects.all()
         for accounts in list_accounts:
             if data_account_number == accounts.account_number:
                 raise forms.ValidationError(INVALID_ACCOUNT_NUMBER)
             if data_alias == accounts.alias:
                  raise forms.ValidationError(INVALID_ALIAS)
-         #Validate for balance must be 0
+         #BALANCE MUST BE 0
         if data_balance < 0 or data_balance > 0:
             raise forms.ValidationError(INVALID_BALANCE_VALUE)
         else:

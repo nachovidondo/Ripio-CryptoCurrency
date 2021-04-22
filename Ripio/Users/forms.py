@@ -2,7 +2,8 @@ from django import forms
 from .models import User
 from django.contrib.auth.forms import AuthenticationForm
 
-#Custom Login Form
+
+#CUSTOM LOGIN FORM
 class LoginForm(AuthenticationForm):
     def __init__(self,*args,**kwargs):
         super(LoginForm,self).__init__(*args, **kwargs)
@@ -17,9 +18,8 @@ class LoginForm(AuthenticationForm):
                 code = 'invalid_login',
                 params = {'username':self.username_field.verbose_name}
             )
-#Custom User Form
+#CUSTOM USER FORM , TO REGISTER A NEW USER IN THE DATABASE
 class UserForm(forms.ModelForm):
-    #Form to register an User in a database
     password1 = forms.CharField(label="Contraseña", widget = forms.PasswordInput(
         attrs={
             'class':'form-control',
@@ -72,7 +72,7 @@ class UserForm(forms.ModelForm):
             )
         }, 
         def clean_password2(self):
-            # Passwords Validation 
+            # BOTH PASSWORDS EQUAL?
             password1 = self.cleaned_data.get('password1')
             password2 = self.cleaned_data.get('password2')
             if password1 != password2:

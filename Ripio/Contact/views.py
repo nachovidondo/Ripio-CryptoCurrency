@@ -16,6 +16,7 @@ def contact(request):
             from_email = form.cleaned_data['from_email']
             message = form.cleaned_data['message']
             try:
+                #SEND EMAIL FROM THE USER TO OUR EMAIL ACCOUNT
                 send_mail(subject, message, from_email, ['ripiocurrencies@gmail.com'])
             except BadHeaderError:
                 return HttpResponse('Mensaje no enviado ')
@@ -24,4 +25,5 @@ def contact(request):
 
 
 def email_sent(request):
+    #SUCCESS EMAIL CONTACT
     return render(request, 'email_sent.html')   

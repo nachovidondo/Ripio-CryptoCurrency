@@ -36,7 +36,7 @@ class TransferForm(forms.ModelForm):
         fields = '__all__'
       
     def __init__(self, *args, **kwargs):
-        #Function to filter all the accounts from the user login
+        #FILTER ALL THE ACCOUNTS FROM THE USER LOGIN
            user = kwargs.pop('username')
            super(TransferForm, self).__init__(*args, **kwargs)
            self.fields['origin_account'].queryset = Account.objects.filter(username=user)
@@ -63,7 +63,7 @@ class TransferForm(forms.ModelForm):
                 raise forms.ValidationError(AMOUNT_VALUE )
             return self.cleaned_data
         raise forms.ValidationError(ACCOUNT_UNKOWN)
-    
+    #THIS FUNCTION IS COMMENTED JUST TO SHOW HOW WOULD BE MAKE IT IN THE FUTURE , TO AVOID DOUBLES TRANSACTIONS
 '''     Validations to avoid double transaction :
         It is commented because it does not have control of the admin and 
         it would return error constantly, it should be have an automatical control with 

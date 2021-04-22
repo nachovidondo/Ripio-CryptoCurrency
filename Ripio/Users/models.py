@@ -55,9 +55,9 @@ class User(AbstractBaseUser):
         verbose_name="Usuario"
         verbose_name_plural="Usuarios"
         
-    #Atribute to get Login
+    #ATRIBUTE TO GET THE LOGIN
     USERNAME_FIELD = 'username'
-    #Fields required  when we create user
+    #FIELDS REQUIRED TO CREATE THE NEW USER
     REQUIRED_FIELDS = ['email', 'name','surname']
     
     def __str__(self):

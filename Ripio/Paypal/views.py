@@ -10,6 +10,7 @@ def simpleCheckout(request):
 	return render(request, 'base/simple_checkout.html')
 
 def store(request):
+    #LIST OF PRODUCTS
     products = Product.objects.all()
     return render(request, 'base/store.html',{'products': products})
 
@@ -19,5 +20,5 @@ def checkout(request, pk):
 	return render(request, 'base/checkout.html', context)
 
 def paymentComplete(request):
-	body = json.loads(request.body)
+    body = json.loads(request.body)
 	return JsonResponse('Payment completed!', safe=False)

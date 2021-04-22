@@ -25,6 +25,7 @@ class MyTransferences(ListView):
     model = Transfer
     template_name = 'my_transferences.html'
     def get_queryset(self):
+        #QUERYSET TO FILTER BY USER LOGIN  TRANSFERENCES
         accounts = Account.objects.filter(username=self.request.user)
         if accounts:
             queryset = Transfer.objects.filter(origin_account__in=accounts)
@@ -38,7 +39,7 @@ class CreateTransfer(CreateView):
     form_class = TransferForm
     success_url = reverse_lazy('transactions')
     def get_form_kwargs(self):
-        #Function to filter all the accounts from the user login
+        #FUNCTION TO FILTER ALL THE ACCOUNTS FROM THE USER LOGIN 
         kwargs = super(CreateTransfer, self).get_form_kwargs()
         kwargs['username'] = self.request.user
         return kwargs
@@ -54,7 +55,6 @@ class Download(DetailView):
             }
             html = template.render(context)
             response = HttpResponse(content_type='application/pdf')
-            #response['Content-Disposition'] = 'attachment; filename= "transfer.pdf"'
             pisaStatus = pisa.CreatePDF(
                 html, dest=response)
             if pisaStatus.err:
@@ -66,6 +66,7 @@ class Download(DetailView):
 
 
 def transactions(request):
+    #SHOW THE MESSAGE ABOUT TRANSACTIONS CREATED
     return render(request, 'transactions.html')
 
 
