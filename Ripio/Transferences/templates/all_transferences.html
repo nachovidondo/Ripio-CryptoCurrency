@@ -4,10 +4,8 @@
 <div class="h2">
 <h2>Transferencias Generales </h2>
 </div>
-
 <div class="table-container">
-
-    <table border="1"  style="margin: 0 auto;">
+<table border="1"  style="margin: 20px auto;">
     <caption>Ultimos movimientos</caption>
     <tr>
         <th>Nº de transferencia</th>
@@ -16,21 +14,16 @@
         <th>Cuenta de destino</th>
          <th>Monto</th>
     </tr>
-    
-     {% for transfer in object_list %}
+    {% for transfer in object_list %}
     <tr>
         <td>{{transfer.id}}</td>
         <td>{{transfer.creation_date}}</td>
-
-        <td>{{transfer.origin_account}}</td>
+         <td>{{transfer.origin_account}}</td>
         <td>{{transfer.destination_account}}</td>
         <td>{{transfer.amount}}</td>
-        <td>  <a href="{% url 'download' transfer.id %}"><button>Ver en PDF</button></a></td>
+        <td><a href="{% url 'download' transfer.id %}"><button>Ver en PDF</button></a></td>
     </tr>
     {% endfor %}
-
-
 </table>
-
 </div>
 {% endblock %}

@@ -1,10 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h2>Mis Transferencias </h2>
-
 <div class="table-container">
-    <table border="1"  style="margin: 0 auto;">
+    <table border="1"  style="margin: 30px auto;">
         <caption>Ultimos movimientos</caption>
         <tr>
             <th>Nº de transferencia</th>
@@ -17,7 +15,6 @@
         <tr>
             <td>{{transfer.id}}</td>
             <td>{{transfer.creation_date}}</td>
-    
             <td>{{transfer.origin_account}}</td>
             <td>{{transfer.destination_account}}</td>
             <td>{{transfer.amount}}</td>
@@ -27,5 +24,5 @@
     </table>
 </div>
 <strong><button><a href="{% url 'create_transfer' %}">Nueva transferencia </a></button></strong>
+
 {% endblock %}
-.table-container { background-color: red;}

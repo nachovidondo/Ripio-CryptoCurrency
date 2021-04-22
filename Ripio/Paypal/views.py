@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 import json
+
 from .models import Product, Order
 
 
@@ -19,5 +20,4 @@ def checkout(request, pk):
 
 def paymentComplete(request):
 	body = json.loads(request.body)
-	print('BODY:', body)
 	return JsonResponse('Payment completed!', safe=False)

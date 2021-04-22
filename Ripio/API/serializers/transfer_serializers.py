@@ -1,4 +1,5 @@
 from rest_framework import serializers
+
 from  Transferences.models import Transfer
 from API.serializers.currency_serializers import CurrencySerializer
 from API.serializers.account_serializers import AccountSerializer
@@ -43,7 +44,6 @@ class TransferSerializer(serializers.ModelSerializer):
        
        def validate_destination_account(self,value):
               account_destination = Account.objects.all()
-              print(value)
               for account in account_destination :
                      if value == account.account_number:
                             return value

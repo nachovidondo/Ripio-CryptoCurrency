@@ -1,29 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
 
-
-<table border="1"  style="margin: 0 auto;">
+<table border="1"  style="margin: 20px auto;">
     <caption>Monedas</caption>
-   
-    <tr>
+   <tr>
         <th>Nombre</th>
         <th>Precio</th>
         <th>Creado</th>
-       
- 
     </tr>
      {% for currency in object_list %}
     <tr>
-        
         <td>{{currency.name}}</td>
         <td>{{currency.price}}</td>
         <td>{{currency.update_date}}</td>
-        <td><a href="{% url 'edit_currency' currency.id %}">Editar</a></td>
-        <td><a href="{% url 'delete_currency' currency.id %}">Eliminar</a></td>
+        <td><a href="{% url 'edit_currency' currency.id %}"><button>Editar</button></a></td>
+        <td><a href="{% url 'delete_currency' currency.id %}"><button>Eliminar</button></a></td>
     </tr>
-
     {% endfor %}    
 </table>
-
-    <button><a href="{% url 'new_currency' %}">Nueva moneda</a></button>
+<a href="{% url 'new_currency' %}"><button>Nueva moneda</button></a>
 {% endblock %}

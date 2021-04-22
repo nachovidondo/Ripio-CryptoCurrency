@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
+
 from .forms import CurrencyForm
 from .models import Currency
 
@@ -8,7 +9,7 @@ from .models import Currency
 
 class CurrenciesPriceList(ListView):
     model = Currency
-    template_name = "currencies_price.html"
+    template_name = 'currencies_price.html'
 
 
 class ListCurrencies(ListView):

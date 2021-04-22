@@ -1,26 +1,23 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h2  style="text-align:center; margin : 10px auto;">Cotizacion general </h2>
+<h2  style="text-align:center; margin : 10px auto;">Cotizacion de Monedas </h2>
 
 <div style="width: 450px;  margin: 10px auto; padding: 10px;">
 <table border="1"  style="margin: 0 auto;">
-    <caption>Cotizacion con respecto al USD</caption>
+
     <tr>
         <th>Fecha y hora </th>
         <th>Moneda </th>
-        <th>Precio</th> 
-     
-     </tr>
+        <th>Precio US$</th> 
+    </tr>
      {% for currency in object_list %}
     <tr>
         <td>{% now "jS F Y H:i" %}</td>
         <td>{{currency.name}}</td>
-
         <td>{{currency.price}}</td>
         <td>{{currency.}}</td>
         <td>{{transfer.amount}}</td>
-    
     </tr>
     {% endfor %}
 </table>

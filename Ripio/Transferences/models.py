@@ -2,6 +2,7 @@ from django.db import models
 from django.core.mail import send_mail
 from django.dispatch import receiver
 from django.db.models.signals import post_save, post_delete
+
 from Currencies.models import Currency
 from Accounts.models import Account
 from Users.models import User

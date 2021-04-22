@@ -1,4 +1,5 @@
 from rest_framework import serializers
+
 from Accounts.models import Account
 
 
@@ -48,8 +49,6 @@ class AccountSerializer(serializers.ModelSerializer):
         accounts= Account.objects.filter(type_currency=value)
         if accounts:
             for account in accounts:
-                print(data_username)
-                print(account.username.id)
                 if int(account.username.id) == int(data_username):
                     raise ValueError(INVALID_CURRENCY)
         return value

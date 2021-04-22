@@ -1,4 +1,5 @@
 from django import forms
+
 from Accounts.models import Account
 from Currencies.models import Currency
 from .models import Transfer
@@ -17,17 +18,17 @@ SECURITY_MESSAGE = 'Por razones de seguridad su transferencia ha sido invalida ,
 
 class TransferForm(forms.ModelForm):
 
-    destination_account = forms.CharField(label="Cuenta de destino",
+    destination_account = forms.CharField(label='Cuenta de destino',
                                      widget=forms.TextInput(
                                          attrs={
-                                             "placeholder":"Cuenta de destino"
+                                             'placeholder':'Cuenta de destino'
                                          }
                                      ))
 
-    amount = forms.CharField(label="Cantidad",
+    amount = forms.CharField(label='Cantidad',
                                      widget=forms.TextInput(
                                          attrs={
-                                             "placeholder":"Cantidad"
+                                             'placeholder':'Cantidad'
                                          }
                                      ))
     class Meta:

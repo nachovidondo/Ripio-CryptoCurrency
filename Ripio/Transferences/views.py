@@ -8,6 +8,7 @@ from django.http import HttpResponse
 from django.contrib.staticfiles import finders
 from django.views.generic import ListView ,View , CreateView, DetailView
 from xhtml2pdf import pisa
+
 from Accounts.models import Account
 from Users.models import User
 from .models import Transfer

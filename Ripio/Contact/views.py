@@ -1,6 +1,7 @@
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
+
 from .forms import ContactForm
 
 
@@ -19,7 +20,7 @@ def contact(request):
             except BadHeaderError:
                 return HttpResponse('Mensaje no enviado ')
             return redirect('email_sent')
-    return render(request, "contact.html", {'form': form})
+    return render(request, 'contact.html', {'form': form})
 
 
 def email_sent(request):

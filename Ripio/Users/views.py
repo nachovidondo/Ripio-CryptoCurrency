@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.core.mail import send_mail
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import never_cache
@@ -7,7 +8,7 @@ from django.contrib.auth import login, logout
 from django.http import HttpResponseRedirect
 from django.views.generic.edit import FormView
 from django.views.generic import CreateView, View
-from django.core.mail import send_mail
+
 from .models import User
 from .forms import UserForm, LoginForm
 
@@ -38,16 +39,14 @@ class Login(FormView):
                   'ripiocurrencies@gmail.com', 
                    [email_user],
                   fail_silently=False)
-        print("email sent")
         return super(Login,self).form_valid(form)
         
 
 
 class UserRegister(CreateView):
-    
     model = User
     form_class = UserForm
-    template_name = "register.html"
+    template_name = 'register.html'
     
     def post(self,request,*args, **kwargs):
         # method to save password encrypted

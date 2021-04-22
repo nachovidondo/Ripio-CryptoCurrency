@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.views.generic import ListView
+
 from Currencies.models import Currency
+
+
 
 class Index(ListView):
     model = Currency
